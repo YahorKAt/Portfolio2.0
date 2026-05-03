@@ -1,20 +1,21 @@
-import {Icon} from "./Icon.tsx";
+import {Icon} from "./icon/Icon.tsx";
 import styled from "styled-components";
-import {theme} from "../../styles/Theme.tsx";
+import {theme} from "../styles/Theme.tsx";
+import * as React from "react";
 
-export const Moon = () => {
+export const ChangeThemeButton: React.FC = () => {
     return (
-        <StyledMoon aria-label="Toggle theme">
+        <Button aria-label="Toggle theme">
             <Icon iconId={"sun"}
                   width="40"
                   height="40"
                   aria-label={"sun"}
                   aria-hidden="true"/>
-        </StyledMoon>
+        </Button>
     );
 };
 
-const StyledMoon = styled.button`
+const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;

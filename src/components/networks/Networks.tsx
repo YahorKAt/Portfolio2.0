@@ -20,9 +20,9 @@ const socialNetworksArray = [
     }
 ]
 
-export function Networks() {
+export const Networks: React.FC = () => {
     return (
-        <StyledSocialNetworksBox>
+        <SocialNetworksBox>
             {socialNetworksArray.map(network => (
                 <Network
                     key={network.id}
@@ -31,16 +31,16 @@ export function Networks() {
                     ariaLabel={network.name}
                 />
             ))}
-        </StyledSocialNetworksBox>
+        </SocialNetworksBox>
     )
 }
 
-const StyledSocialNetworksBox = styled.ul`
+const SocialNetworksBox = styled.ul`
     display: flex;
     justify-content: space-between;
     max-width: 120px;
     width: 100%;
- 
+
     svg:hover {
         transform: scale(1.2);
         transition: all 0.4s ease;

@@ -1,8 +1,8 @@
 import {Container} from "../../../components/Container.tsx";
 import {List} from "../../../components/List.tsx";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
-import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
+import {S} from "./Experience_Styles.ts"
+import * as React from "react";
 
 const workExperienceArray = [
     {
@@ -47,35 +47,22 @@ const educationExperienceArray = [
     }
 ]
 
-export const Experience = () => {
+export const Experience: React.FC = () => {
     return (
         <section>
             <Container>
-                <GridWrapper>
+                <S.GridWrapper>
                     <div>
                         <SectionTitle icon="work">Work Experience</SectionTitle>
                         <List data={workExperienceArray} showTimeline/>
                     </div>
-
                     <div>
                         <SectionTitle icon="education">Education</SectionTitle>
                         <List data={educationExperienceArray}/>
                     </div>
-                </GridWrapper>
+                </S.GridWrapper>
             </Container>
         </section>
     );
 };
 
-
-
-const GridWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-
-    @media ${theme.media.tablet} {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-`

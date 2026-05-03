@@ -1,10 +1,8 @@
-import styled from "styled-components";
+import {Container} from "../../components/Container.tsx";
 import {FlexWrapper} from "../../components/FlexWrapper.tsx";
 import {Logo} from "../../components/logo/Logo.tsx";
-import {theme} from "../../styles/Theme.tsx";
-import {Container} from "../../components/Container.tsx";
 import {FooterMenu} from "./footerMenu/FooterMenu.tsx";
-import {font} from "../../styles/Common.ts";
+import {S} from "./Footer_Styles.ts";
 
 const linksNameList = [
     {title: "Home", id: "home"},
@@ -14,39 +12,19 @@ const linksNameList = [
     {title: "Contact", id: "contact"}
 ]
 
-export const Footer = () => {
+export const Footer:React.FC = () => {
     return (
-        <StyledFooter>
+        <footer>
             <Container>
                 <FlexWrapper $align={"center"} $justify={"center"} $gap={"20px"} $wrap={"wrap"}>
                     <Logo text={"My portfolio"}/>
                     <FooterMenu links={linksNameList}/>
-                    <StyledTextBox>
-                        <GreyText>Designed and built by </GreyText>Egor
-                        Kotkovets with<GreyText> ❤️ </GreyText> & Coffee<GreyText> ☕</GreyText>
-                    </StyledTextBox>
+                    <S.TextBlock>
+                        <S.GreyText>Designed and built by </S.GreyText>Egor
+                        Kotkovets with<S.GreyText> ❤️ </S.GreyText> & Coffee<S.GreyText> ☕</S.GreyText>
+                    </S.TextBlock>
                 </FlexWrapper>
             </Container>
-        </StyledFooter>
+        </footer>
     );
 };
-
-const StyledFooter = styled.footer`
- 
-`
-
-const StyledTextBox = styled.div`
-    ${font({family: "Poppins", Fmax: 16, Fmin: 12})}
-    text-align: center;
-    background: ${theme.colors.gradient_primary};
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-`
-
-const GreyText = styled.span`
-    background: none;
-    color: ${theme.colors.text_secondary};
-    -webkit-text-fill-color: ${theme.colors.text_secondary};
-`

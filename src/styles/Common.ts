@@ -1,4 +1,5 @@
 import {theme} from "./Theme.tsx";
+import {css} from "styled-components";
 
 type FontPropsType = {
     family?: string,
@@ -25,9 +26,13 @@ type GapPropsType = {
     maxWidth?: number,
 }
 
-export const gap = ({
-                        Gmin = 0,
-                        Gmax = 0,
-                        minWidth = 320,
-                        maxWidth = 1440
-                    }: GapPropsType) => `clamp(${Gmin}px, calc(${Gmin}px + (${Gmax - Gmin} / ${maxWidth - minWidth}) * (100vw - ${minWidth}px)), ${Gmax}px)`
+export const gap = ({Gmin = 0, Gmax = 0, minWidth = 320, maxWidth = 1440}: GapPropsType) => `
+    clamp(${Gmin}px, calc(${Gmin}px + (${Gmax - Gmin} / ${maxWidth - minWidth}) * (100vw - ${minWidth}px)), ${Gmax}px)
+`
+
+export const gradientBorder = css`
+        outline: none;
+        background: linear-gradient(${theme.colors.bg_section}) padding-box,
+        ${theme.colors.gradient_primary} border-box;
+        border: 1px solid transparent;
+`

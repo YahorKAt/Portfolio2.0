@@ -1,11 +1,11 @@
-import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import {Container} from "../../../components/Container.tsx";
 import {Skill} from "./skill/Skill.tsx";
 import {SectionDescription} from "../../../components/SectionDescription.tsx";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
 import {Slider} from "../../../components/Slider.tsx";
-import {theme} from "../../../styles/Theme.tsx";
+import {S} from "./Skills_Styles.ts"
+
 
 const mySkillsArray = [
     {
@@ -70,52 +70,31 @@ const mySkillsArray = [
     }
 ];
 
-export const Skills = () => {
+
+export const Skills: React.FC = () => {
     return (
         <section id='skills'>
             <Container>
                 <FlexWrapper $direction={"column"} $gap={"10px"}>
                     <SectionTitle icon="tech">My Tech Stack</SectionTitle>
                     <SectionDescription>Technologies I’ve been working with recently</SectionDescription>
-                    <StyledGrid>
+                    <S.GridWrapper>
                         {mySkillsArray.map((skill) => (
                             <Skill key={skill.id} iconId={skill.iconId} skillName={skill.name}/>
                         ))}
-                    </StyledGrid>
+                    </S.GridWrapper>
 
-                    <StyledSliderWrapper>
+                    <S.SliderWrapper>
                         <Slider
                             items={mySkillsArray.map((skill) => (
-                                <Skill key={skill.id} iconId={skill.iconId} skillName={skill.name} as="div"/>
+                                <Skill key={skill.id} iconId={skill.iconId} skillName={skill.name}/>
                             ))}
                             cardWidth={160}
                             sceneHeight={200}
                         />
-                    </StyledSliderWrapper>
+                    </S.SliderWrapper>
                 </FlexWrapper>
             </Container>
         </section>
     );
 };
-
-const StyledGrid = styled.ul`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 150px);
-    justify-content: center;
-    justify-items: center;
-    gap: 25px;
-    margin-top: 40px;
-
-    @media ${theme.media.tablet} {
-        display: none;
-    }
-`
-
-const StyledSliderWrapper = styled.div`
-    display: none;
-    
-    @media ${theme.media.tablet} {
-        padding-top: 30px;
-        display: block;
-    }
-`

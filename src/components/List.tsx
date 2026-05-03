@@ -1,6 +1,7 @@
 import {Item} from "../layout/sections/aboutMe/Item.tsx";
 import styled from "styled-components";
 import {theme} from "../styles/Theme.tsx";
+import * as React from "react";
 
 type ItemPropsType = {
     jobPosition: string;
@@ -16,7 +17,7 @@ type ListPropsType = {
     showTimeline?: boolean,
 }
 
-export const List = (props: ListPropsType) => {
+export const List: React.FC<ListPropsType> = (props: ListPropsType) => {
     return (
         <StyledList $showTimeline={props.showTimeline}>
             {props.data.map((item, index) => (

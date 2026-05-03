@@ -1,12 +1,12 @@
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
-import styled from "styled-components";
 import {Project} from "./project/Project.tsx";
+import {FilterBlock} from "../../../components/filter/FilterBlock.tsx";
+import {Slider} from "../../../components/Slider.tsx";
 import {Container} from "../../../components/Container.tsx";
 import {SectionDescription} from "../../../components/SectionDescription.tsx";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
-import {FilterBlock} from "./FilterBlock.tsx";
-import {theme} from "../../../styles/Theme.tsx";
-import {Slider} from "../../../components/Slider.tsx";
+
+import {S} from "./Projects_Styles.ts"
 
 const projects = [
     {
@@ -53,7 +53,7 @@ const projects = [
     }
 ]
 
-export const Projects = () => {
+export const Projects:React.FC = () => {
     return (
         <section id='projects'>
             <Container>
@@ -61,43 +61,22 @@ export const Projects = () => {
                     <SectionTitle icon="folder">Projects</SectionTitle>
                     <SectionDescription>Some things I`ve built</SectionDescription>
                     <FilterBlock/>
-                    <StyledSliderWrapper>
+                    <S.SliderWrapper>
                         <Slider
                             items={projects.map((project, index) => (
-                                <Project key={index} {...project} as="div"/>
+                                <Project key={index} {...project}/>
                             ))}
                             cardWidth={360}
                         />
-                    </StyledSliderWrapper>
-                    <StyledGrid>
+                    </S.SliderWrapper>
+                    <S.GridWrapper>
                         {projects.map((project, index) => (
                             <Project key={index} {...project}/>
                         ))}
-                    </StyledGrid>
+                    </S.GridWrapper>
                 </FlexWrapper>
             </Container>
         </section>
     );
 };
-
-const StyledGrid = styled.ul`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 360px));
-    gap: 35px;
-    justify-content: center;
-    margin-top: 40px;
-
-    @media ${theme.media.tablet} {
-        display: none;
-    }
-`
-
-const StyledSliderWrapper = styled.div`
-    display: none;
-
-    @media ${theme.media.tablet} {
-        padding-top: 30px;
-        display: block;
-    }
-`
 

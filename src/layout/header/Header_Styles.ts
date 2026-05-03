@@ -10,7 +10,6 @@ const Header = styled.header`
     z-index: 99999;
     padding: 10px 0;
     
-    
     //Blur background
     &::before {
         content: '';
@@ -50,11 +49,15 @@ const RightPanel = styled.div`
     justify-content: space-between;
     max-width: 186px;
     width: 100%;
-    gap: ${gap({ Gmin: 5, Gmax: 30, minWidth: 768})};
-    
-    @media screen and (max-width: 800px)  {
+    gap: ${gap({Gmin: 5, Gmax: 30, minWidth: 768})};
+
+    @media ${theme.media.tablet} {
         display: none;
     }
 `
 
-export const S = {Header, H1, RightPanel}
+export const S = {
+    Header,
+    H1,
+    RightPanel
+}

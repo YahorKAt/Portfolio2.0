@@ -4,7 +4,7 @@ import {Logo} from "../../components/logo/Logo.tsx";
 import {DesktopMenu} from "./desktopMenu/DesktopMenu.tsx";
 import {MobileMenu} from "./mobileMenu/MobileMenu.tsx";
 import {Networks} from "../../components/networks/Networks.tsx";
-import {Moon} from "../../components/icon/Moon..tsx";
+import {ChangeThemeButton} from "../../components/ChangeThemeButton.tsx";
 import {S} from "./Header_Styles.ts";
 import * as React from "react";
 
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
                                         : <DesktopMenu items={linksNameList}/>}
                     <S.RightPanel>
                         <Networks/>
-                        <Moon/>
+                        <ChangeThemeButton/>
                     </S.RightPanel>
                 </FlexWrapper>
             </Container>

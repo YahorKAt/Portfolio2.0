@@ -1,210 +1,53 @@
-import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import {Container} from "../../../components/Container.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
-import {font, gap} from "../../../styles/Common.ts";
-import {ContactForm} from "../../../components/Form.tsx";
+import {ContactForm} from "../../../components/form/contactForm/ContactForm.tsx";
+import {S} from "./Contacts_Styles.ts";
 
-export const Contacts = () => {
+
+const FEATURES = [
+    {id:1, icon: "lightning", title: "Quick response", text: "I typically reply within 24 hours"},
+    {id:2, icon: "shield", title: "Your privacy matters", text: "Your information is safe with me"},
+    {id:3, icon: "done", title: "Let's build something great", text: "I'm excited to hear about your project"},
+]
+
+
+export const Contacts: React.FC = () => {
     return (
         <section id='contact'>
             <Container>
-                <GridWrapper>
-                    <RightBlock>
-                        <HeaderBlock>
-                            <HeaderIconWrapper>
+                <S.GridWrapper>
+                    <S.RightBlock>
+                        <S.HeaderBlock>
+                            <S.HeaderIconWrapper>
                                 <Icon iconId="emailBig" width={"64px"} height={"64px"}/>
-                            </HeaderIconWrapper>
-                            <StyledHeaderTextBlock>
-                                <GradientText>Have a questions?</GradientText>
+                            </S.HeaderIconWrapper>
+                            <S.HeaderTextBlock>
+                                <S.GradientText>Have a questions?</S.GradientText>
                                 <h4>Let's connect!</h4>
                                 <p>I'm here to help. Reach out and I'll get back to you as soon as possible.</p>
-                            </StyledHeaderTextBlock>
-                        </HeaderBlock>
+                            </S.HeaderTextBlock>
+                        </S.HeaderBlock>
 
-                        <StyledBottomBlock>
-                            <Item>
-                                <IconBox>
-                                    <Icon iconId="lightning" width="20" height="20"/>
-                                </IconBox>
-                                <StyledTextBlock>
-                                    <h5>Quick response</h5>
-                                    <p>I typically reply within 24 hours</p>
-                                </StyledTextBlock>
-                            </Item>
-
-                            <Item>
-                                <IconBox>
-                                    <Icon iconId="shield" width="20" height="20"/>
-                                </IconBox>
-                                <StyledTextBlock>
-                                    <h5>Your privacy matters</h5>
-                                    <p>Your information is safe with me</p>
-                                </StyledTextBlock>
-                            </Item>
-
-                            <Item>
-                                <IconBox>
-                                    <Icon iconId="done" width="20" height="20"/>
-                                </IconBox>
-                                <StyledTextBlock>
-                                    <h5>Let's build something great</h5>
-                                    <p>I'm excited to hear about your project</p>
-                                </StyledTextBlock>
-                            </Item>
-
-
-                        </StyledBottomBlock>
-
-                    </RightBlock>
-
-                    <LeftBlock>
+                        <S.BottomBlock>
+                            {FEATURES.map((item) => (
+                                <S.Item key={item.id}>
+                                    <S.IconBox>
+                                        <Icon iconId={item.icon} width="20" height="20"/>
+                                    </S.IconBox>
+                                    <S.TextBlock>
+                                        <h5>{item.title}</h5>
+                                        <p>{item.text}</p>
+                                    </S.TextBlock>
+                                </S.Item>
+                            ))}
+                        </S.BottomBlock>
+                    </S.RightBlock>
+                    <S.LeftBlock>
                         <ContactForm/>
-                    </LeftBlock>
-                </GridWrapper>
+                    </S.LeftBlock>
+                </S.GridWrapper>
             </Container>
         </section>
     );
 };
 
-const StyledBottomBlock = styled.ul`
-    display: flex;
-    flex-direction: column;
-    gap: ${gap({Gmin: 20, Gmax: 40})};
-
-    padding-left: 20px;
-`
-
-const Item = styled.li`
-    display: flex;
-    align-items: center;
-    gap: 20px;
-`
-
-const IconBox = styled.div`
-    border-radius: 50%;
-    padding: 10px;
-    border: ${theme.colors.color_icon} 1px solid;
-    background: ${theme.colors.bg_icon};
-    color: ${theme.colors.color_icon};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-`
-const HeaderIconWrapper = styled.div`
-    border-radius: 50%;
-    padding: 10px;
-    border: ${theme.colors.color_icon} 1px solid;
-    background: ${theme.colors.bg_icon};
-    color: ${theme.colors.color_icon};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
-
-`
-
-
-const HeaderBlock = styled.div`
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: ${gap({Gmin: 20, Gmax: 50})};
-    padding-bottom: 10px;
-
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        right: 0;
-        height: 1px;
-
-        background: linear-gradient(
-                190deg,
-                transparent,
-                ${theme.colors.start_gradient},
-                ${theme.colors.end_gradient},
-                transparent
-        );
-    }
-
-    @media ${theme.media.tablet} {
-        flex-direction: column;
-    }
-`
-
-const RightBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: ${gap({Gmin: 20, Gmax: 50})};
-`
-
-const LeftBlock = styled.div`
-    @media ${theme.media.tablet} {
-        max-width: 450px;
-        width: 100%;
-    }
-`
-
-const GridWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 50px;
-
-    @media ${theme.media.tablet} {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        margin: 0 auto;
-    }
-`
-const StyledHeaderTextBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    h4 {
-        ${font({weight: 600, Fmax: 26, Fmin: 20})}
-    }
-
-    p {
-        ${font({color: theme.colors.text_secondary, Fmax: 14, Fmin: 10})}
-    }
-
-    @media ${theme.media.tablet} {
-        align-items: center;
-        p {
-            text-align: center;
-        }
-    }
-`
-
-const StyledTextBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-
-    h5 {
-        ${font({weight: 500, Fmax: 16, Fmin: 14})}
-    }
-
-    p {
-        ${font({color: theme.colors.text_secondary, Fmax: 14, Fmin: 10})}
-    }
-
-
-`
-
-const GradientText = styled.span`
-    ${font({weight: 700, Fmax: 18, Fmin: 10})}
-    text-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
-    background: ${theme.colors.gradient_primary};
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-`

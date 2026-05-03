@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
 import {Icon} from "./icon/Icon.tsx";
 import {theme} from "../styles/Theme.tsx";
-import {font} from "../styles/Common.ts";
-
+import {font, gradientBorder} from "../styles/Common.ts";
+import * as React from "react";
 
 type ButtonVariantType = "primary" | "outlined"
 
@@ -14,7 +14,7 @@ type ButtonPropsType = {
     round?: boolean
 }
 
-export const Button = ({children, link, variant = "primary", nameIcon, round}: ButtonPropsType) => {
+export const Button:React.FC<ButtonPropsType> = ({children, link, variant = "primary", nameIcon, round}: ButtonPropsType) => {
     return (
         <StyledButton href={"#" + link} $variant={variant} $round={round}>
             {children}
@@ -60,10 +60,7 @@ const StyledButton = styled.a<StyledButtonPropsType>`
                 transition: border-color 0.5s ease;
 
                 &:hover, &:focus {
-                    outline: none;
-                    background: linear-gradient(${theme.colors.bg_section}) padding-box,
-                    ${theme.colors.gradient_primary} border-box;
-                    border: 1px solid transparent;
+                    ${gradientBorder};
                 }
             `};
 

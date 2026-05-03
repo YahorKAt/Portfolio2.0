@@ -1,6 +1,7 @@
 import {useState, useRef, type ReactNode} from "react";
 import styled from "styled-components";
 import {theme} from "../styles/Theme.tsx";
+import * as React from "react";
 
 
 type SliderProps = {
@@ -9,7 +10,7 @@ type SliderProps = {
     sceneHeight?: number;
 }
 
-export const Slider = ({ items, cardWidth = 280, sceneHeight = 520}: SliderProps) => {
+export const Slider:React.FC<SliderProps> = ({ items, cardWidth = 280, sceneHeight = 520}: SliderProps) => {
     const [active, setActive] = useState(0);
     const touchStartX = useRef<number>(0);
     const touchEndX = useRef<number>(0);

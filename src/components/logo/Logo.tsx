@@ -1,20 +1,21 @@
 import styled from "styled-components";
 import {theme} from "../../styles/Theme.tsx";
 import {font} from "../../styles/Common.ts";
+import * as React from "react";
 
 type LogoPropsType = {
     text: string;
 }
 
-export const Logo = (props: LogoPropsType) => {
+export const Logo:React.FC<LogoPropsType> = (props: LogoPropsType) => {
     return (
-        <StyledLink href="/" aria-label="site logo">
+        <Link href="/" aria-label="site logo">
             {props.text}
-        </StyledLink>
+        </Link>
     );
 };
 
-const StyledLink = styled.a`
+const Link = styled.a`
     ${font({family: "DM Sans",  weight: 900, Fmax: 32, Fmin: 26})}
     white-space: nowrap;
 

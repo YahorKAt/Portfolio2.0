@@ -1,22 +1,23 @@
 import styled from "styled-components";
 import {Icon} from "./icon/Icon.tsx";
 import {font} from "../styles/Common.ts";
+import * as React from "react";
 
 type SectionTitlePropsType = {
     icon?: string;
     children: React.ReactNode;
 }
 
-export const SectionTitle = (props: SectionTitlePropsType) => {
+export const SectionTitle:React.FC<SectionTitlePropsType> = (props: SectionTitlePropsType) => {
     return (
-        <StyledTitle>
+        <Title>
             <Icon iconId={props.icon} width="35" height="35"/>
             {props.children}
-        </StyledTitle>
+        </Title>
     );
 };
 
-const StyledTitle = styled.h3`
+const Title = styled.h3`
     display: flex;
     gap: 12px;
     ${font({weight: 600, Fmax: 40, Fmin: 20})};

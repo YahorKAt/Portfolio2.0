@@ -1,5 +1,6 @@
 import {Icon} from "../../icon/Icon.tsx";
 import styled from "styled-components";
+import * as React from "react";
 
 type NetworkProps = {
     href: string,
@@ -7,7 +8,7 @@ type NetworkProps = {
     ariaLabel?: string
 }
 
-export function Network(props: NetworkProps) {
+export const Network:React.FC<NetworkProps> = (props: NetworkProps) => {
     return (
         <li>
             <StyledLink href={props.href}
