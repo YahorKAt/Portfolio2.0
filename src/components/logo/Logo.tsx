@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import {theme} from "../../styles/Theme.tsx";
 import {font} from "../../styles/Common.ts";
+import logo from "../../assets/images/logo1.png";
 import * as React from "react";
 
-type LogoPropsType = {
-    text: string;
-}
-
-export const Logo:React.FC<LogoPropsType> = (props: LogoPropsType) => {
+export const Logo:React.FC = () => {
     return (
         <Link href="/" aria-label="site logo">
-            {props.text}
+            <Image src={logo} alt={"logo"}/>
+            {/*{props.text}*/}
         </Link>
     );
 };
@@ -20,9 +17,16 @@ const Link = styled.a`
     white-space: nowrap;
 
     text-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
-    background: ${theme.colors.gradient_primary};
+    background: ${({theme}) => theme.colors.gradient_primary};
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     user-select: none;
+`
+
+const Image = styled.img`
+    max-width: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 `

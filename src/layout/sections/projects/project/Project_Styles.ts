@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import {theme} from "../../../../styles/Theme.tsx";
 import {font} from "../../../../styles/Common.ts";
+import {media} from "../../../../styles/Theme.tsx";
 
 const StyledProject = styled.li`
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
     overflow: hidden;
-    background: ${theme.colors.bg_section};
-    border: ${theme.colors.border_color} 1px solid;
+    border-radius: 20px;
+    background: ${({theme}) => theme.colors.bg_section};
+    border: ${({theme}) => theme.colors.border_color} 1px solid;
 `
 
 const Picture = styled.img`
@@ -18,9 +18,9 @@ const Picture = styled.img`
 `
 
 const InfoBlock = styled.div`
-    padding: 30px;
+    padding: 20px;
 
-    @media ${theme.media.mobile} {
+    @media ${media.mobile} {
         padding: 15px;
     }
 `
@@ -30,7 +30,8 @@ const Title = styled.h4`
 `
 
 const Description = styled.p`
-    ${font({lineHeight: 1.7, Fmax: 18, Fmin: 12, color: theme.colors.text_secondary})}
+    color: ${({theme}) => theme.colors.text_secondary};
+    ${font({lineHeight: 1.7, Fmax: 18, Fmin: 12})}
     margin: 15px 0;
 `
 
@@ -41,7 +42,8 @@ const StackText = styled.div`
     margin-bottom: 20px;
 
     .stack {
-        ${font({weight: 400, color: theme.colors.text_secondary})};
+        color: ${({theme}) => theme.colors.text_secondary};
+        ${font({weight: 400})};
     }
 `
 
@@ -51,7 +53,7 @@ const LinksBlock = styled.div`
     justify-content: space-between;
     ${font({weight: 500, lineHeight: 1.5, Fmax: 18, Fmin: 12})};
 
-    @media ${theme.media.mobile} {
+    @media ${media.mobile} {
         gap: 15px;
         justify-content: center;
     }
@@ -65,7 +67,7 @@ const Link = styled.a`
 
     :hover {
         transform: scale(1.02);
-        background: ${theme.colors.gradient_btn};
+        background: ${({theme}) => theme.colors.gradient_btn};
 
         background-size: 200%;
         -webkit-background-clip: text;
@@ -76,7 +78,7 @@ const Link = styled.a`
 
         @keyframes gradientMove {
             0% {
-                background-position: 0%;
+                background-position: 0;
             }
             100% {
                 background-position: 200%;
@@ -86,7 +88,7 @@ const Link = styled.a`
 
     &:focus {
         outline: none;
-        background: linear-gradient(${theme.colors.bg_section}) padding-box, ${theme.colors.gradient_primary} border-box;
+        background: linear-gradient(${({theme}) => theme.colors.bg_section}) padding-box, ${({theme}) => theme.colors.gradient_primary} border-box;
         border: 1px solid transparent;
         border-radius: 5px;
     }

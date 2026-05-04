@@ -1,7 +1,7 @@
 import {useState, useRef, type ReactNode} from "react";
 import styled from "styled-components";
-import {theme} from "../styles/Theme.tsx";
 import * as React from "react";
+import {media} from "../styles/Theme.tsx";
 
 
 type SliderProps = {
@@ -119,7 +119,7 @@ const StyledScene3D = styled.div<{ $height: number }>`
     cursor: pointer;
     display: block;
 
-    @media ${theme.media.mobile} {
+    @media ${media.mobile} {
         display: none;
     }
 `
@@ -154,7 +154,7 @@ const StyledSceneMobile = styled.div`
     width: 100%;
     overflow: hidden;
 
-    @media ${theme.media.mobile} {
+    @media ${media.mobile} {
         display: block;
     }
 `
@@ -185,6 +185,6 @@ const StyledDot = styled.button<{ $active: boolean }>`
     cursor: pointer;
     transition: width 0.3s ease, background 0.3s ease;
     background: ${({ $active }) =>
-    $active ? theme.colors.text_primary : theme.colors.border_color};
+    $active ? ({theme}) => theme.colors.text_primary : ({theme}) => theme.colors.border_color};
  
 `

@@ -1,5 +1,5 @@
-import {theme} from "../../../styles/Theme.tsx";
 import styled from "styled-components";
+import {media} from "../../../styles/Theme.tsx";
 
 const GridWrapper = styled.ul`
     display: grid;
@@ -7,9 +7,9 @@ const GridWrapper = styled.ul`
     justify-content: center;
     justify-items: center;
     gap: 25px;
-    margin-top: 40px;
+    margin-top: 30px;
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         display: none;
     }
 `
@@ -17,8 +17,7 @@ const GridWrapper = styled.ul`
 const SliderWrapper = styled.div`
     display: none;
 
-    @media ${theme.media.tablet} {
-        padding-top: 30px;
+    @media ${media.tablet} {
         display: block;
     }
 `

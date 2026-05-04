@@ -1,14 +1,16 @@
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import {font, gap} from "../../../styles/Common.ts";
+import {media} from "../../../styles/Theme.tsx";
 
 const GridWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     align-items: center;
     gap: 50px;
+   
+    padding: 20px;
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         grid-template-columns: 1fr;
         justify-items: center;
         margin: 0 auto;
@@ -23,7 +25,7 @@ const RightBlock = styled.div`
 `
 
 const LeftBlock = styled.div`
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         max-width: 450px;
         width: 100%;
     }
@@ -40,20 +42,20 @@ const HeaderBlock = styled.div`
         content: "";
         position: absolute;
         bottom: -10px;
-        left: 0;
-        right: 0;
+        left: 50px;
+        right: 50px;
         height: 1px;
 
         background: linear-gradient(
                 190deg,
                 transparent,
-                ${theme.colors.start_gradient},
-                ${theme.colors.end_gradient},
+                ${({theme}) => theme.colors.start_gradient},
+                ${({theme}) => theme.colors.end_gradient},
                 transparent
         );
     }
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         flex-direction: column;
     }
 `
@@ -61,9 +63,9 @@ const HeaderBlock = styled.div`
 const HeaderIconWrapper = styled.div`
     border-radius: 50%;
     padding: 10px;
-    border: ${theme.colors.color_icon} 1px solid;
-    background: ${theme.colors.bg_icon};
-    color: ${theme.colors.color_icon};
+    border: ${({theme}) => theme.colors.color_icon} 1px solid;
+    background: ${({theme}) => theme.colors.bg_icon};
+    color: ${({theme}) => theme.colors.color_icon};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,10 +83,11 @@ const HeaderTextBlock = styled.div`
     }
 
     p {
-        ${font({color: theme.colors.text_secondary, Fmax: 14, Fmin: 10})}
+        color: ${({theme}) => theme.colors.text_secondary};
+        ${font({Fmax: 14, Fmin: 10})}
     }
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         align-items: center;
         p {
             text-align: center;
@@ -95,7 +98,7 @@ const HeaderTextBlock = styled.div`
 const GradientText = styled.span`
     ${font({weight: 700, Fmax: 18, Fmin: 10})}
     text-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
-    background: ${theme.colors.gradient_primary};
+    background: ${({theme}) => theme.colors.gradient_primary};
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -118,9 +121,9 @@ const Item = styled.li`
 const IconBox = styled.div`
     border-radius: 50%;
     padding: 10px;
-    border: ${theme.colors.color_icon} 1px solid;
-    background: ${theme.colors.bg_icon};
-    color: ${theme.colors.color_icon};
+    border: ${({theme}) => theme.colors.color_icon} 1px solid;
+    background: ${({theme}) => theme.colors.bg_icon};
+    color: ${({theme}) => theme.colors.color_icon};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,7 +140,8 @@ const TextBlock = styled.div`
     }
 
     p {
-        ${font({color: theme.colors.text_secondary, Fmax: 14, Fmin: 10})}
+        color: ${({theme}) => theme.colors.text_secondary};
+        ${font({Fmax: 14, Fmin: 10})}
     }
 `
 

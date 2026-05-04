@@ -17,8 +17,8 @@ export const Network:React.FC<NetworkProps> = (props: NetworkProps) => {
                         target="_blank"
                         rel="noreferrer">
                 <Icon iconId={props.iconId}
-                      width="32"
-                      height="32"
+                      width="30"
+                      height="30"
                       aria-label={props.ariaLabel}
                       aria-hidden="true"/>
             </StyledLink>

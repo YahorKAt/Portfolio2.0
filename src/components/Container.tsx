@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {theme} from "../styles/Theme.tsx";
+import {media} from "../styles/Theme.tsx";
 
 export const Container = styled.div`
     max-width: 1200px;
@@ -8,8 +8,8 @@ export const Container = styled.div`
     padding: 0 1rem;
     margin: 0 auto;
     //overflow: hidden;
-    border: 1px red solid;
-    @media ${theme.media.tablet} {
+    //border: 1px red solid;
+    @media ${media.tablet} {
         padding: 0 2rem;
     }
 `

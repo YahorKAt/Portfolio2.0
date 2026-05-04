@@ -5,8 +5,10 @@ import {Slider} from "../../../components/Slider.tsx";
 import {Container} from "../../../components/Container.tsx";
 import {SectionDescription} from "../../../components/SectionDescription.tsx";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
-
 import {S} from "./Projects_Styles.ts"
+import {DropDown} from "../../../components/sort/dropdown/DropDown.tsx";
+
+
 
 const projects = [
     {
@@ -53,6 +55,7 @@ const projects = [
     }
 ]
 
+
 export const Projects:React.FC = () => {
     return (
         <section id='projects'>
@@ -60,7 +63,10 @@ export const Projects:React.FC = () => {
                 <FlexWrapper $direction={"column"} $gap={"10px"}>
                     <SectionTitle icon="folder">Projects</SectionTitle>
                     <SectionDescription>Some things I`ve built</SectionDescription>
-                    <FilterBlock/>
+                    <S.FilterAndSortBlock>
+                        <FilterBlock/>
+                        <DropDown/>
+                    </S.FilterAndSortBlock>
                     <S.SliderWrapper>
                         <Slider
                             items={projects.map((project, index) => (
@@ -79,4 +85,3 @@ export const Projects:React.FC = () => {
         </section>
     );
 };
-

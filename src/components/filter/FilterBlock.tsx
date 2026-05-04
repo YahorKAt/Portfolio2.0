@@ -9,16 +9,10 @@ const filters = [
     {id: "React", label: "React", iconId: "react"},
 ];
 
-const sortOptions = [
-    {id: "newest", label: "Newest First"},
-    {id: "oldest", label: "Oldest First"},
-    {id: "az", label: "A → Z"},
-    {id: "za", label: "Z → A"},
-];
 
 export const FilterBlock: React.FC = () => {
     return (
-        <S.StyledFilterBlock role="search">
+        <div role="search">
             <S.Fieldset>
                 <S.Legend>Filter by technology</S.Legend>
                 <S.FiltersList>
@@ -33,18 +27,6 @@ export const FilterBlock: React.FC = () => {
                     ))}
                 </S.FiltersList>
             </S.Fieldset>
-
-            <S.Label htmlFor="sort">Sort by</S.Label>
-            <S.Sort>
-                <S.Select id="sort" aria-label="Sort projects by">
-                    {sortOptions.map(({id, label}) => (
-                        <option key={id} value={id}>{label}</option>
-                    ))}
-                </S.Select>
-                <S.Chevron>
-                    <Icon iconId="arrow_down" width="16px" height="16px"/>
-                </S.Chevron>
-            </S.Sort>
-        </S.StyledFilterBlock>
+        </div>
     );
 };

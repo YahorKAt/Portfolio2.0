@@ -1,5 +1,5 @@
 import {createGlobalStyle} from "styled-components";
-import {theme} from "./Theme.tsx";
+import {media} from "./Theme.tsx";
 
 export const GlobalStyles = createGlobalStyle`
     *,
@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: 'Poppins', sans-serif;
-        color: ${theme.colors.text_primary};
+        color: ${({theme}) => theme.colors.text_primary};
         line-height: 1.2;
         min-width: 320px;
     }
@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     section, footer {
         padding: 100px 0;
 
-        @media ${theme.media.tablet} {
+        @media ${media.tablet} {
             padding: 50px 0;
         }
     }
@@ -47,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     :focus-visible {
-        outline: 2px ${theme.colors.text_primary} solid;
+        outline: 2px ${({theme}) => theme.colors.text_primary} solid;
         border-radius: 5px;
     }
 

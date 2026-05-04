@@ -4,7 +4,10 @@ import {S} from "./MobileMenu_Styles.ts"
 
 type MenuPropsType = {
     items: Array<{ id: number, title: string; idName: string }>,
+    onToggle: () => void
+    isDark: boolean
 }
+
 
 export const MobileMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
     return (
@@ -26,7 +29,7 @@ export const MobileMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
                 </S.List>
                 <S.IconBlock>
                     <Networks/>
-                    <ChangeThemeButton/>
+                    <ChangeThemeButton onToggle={props.onToggle} isDark={props.isDark}/>
                 </S.IconBlock>
             </S.MobileMenuPopUp>
         </nav>

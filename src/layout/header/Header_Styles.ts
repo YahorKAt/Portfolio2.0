@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {theme} from "../../styles/Theme.tsx";
 import {gap} from "../../styles/Common.ts";
+import {media} from "../../styles/Theme.tsx";
 
 const Header = styled.header`
     position: sticky;
@@ -9,18 +9,20 @@ const Header = styled.header`
     right: 0;
     z-index: 99999;
     padding: 10px 0;
-    
+
     //Blur background
+
     &::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: ${theme.colors.header_blur};
+        background: ${({theme}) => theme.colors.header_blur};
         backdrop-filter: blur(12px);
         z-index: -1;
     }
 
     //Gradient bottom line
+
     &::after {
         content: "";
         position: absolute;
@@ -32,8 +34,8 @@ const Header = styled.header`
         background: linear-gradient(
                 190deg,
                 transparent,
-                ${theme.colors.start_gradient},
-                ${theme.colors.end_gradient},
+                ${({theme}) => theme.colors.start_gradient},
+                ${({theme}) => theme.colors.end_gradient},
                 transparent
         );
     }
@@ -51,7 +53,7 @@ const RightPanel = styled.div`
     width: 100%;
     gap: ${gap({Gmin: 5, Gmax: 30, minWidth: 768})};
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         display: none;
     }
 `

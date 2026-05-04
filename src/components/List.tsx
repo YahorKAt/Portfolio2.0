@@ -1,6 +1,5 @@
 import {Item} from "../layout/sections/aboutMe/Item.tsx";
 import styled from "styled-components";
-import {theme} from "../styles/Theme.tsx";
 import * as React from "react";
 
 type ItemPropsType = {
@@ -48,7 +47,7 @@ const StyledList = styled.div<{ $showTimeline?: boolean }>`
         left: 15px;
         top: 0;
         bottom: 0;
-        width: 3px;
-        background: ${theme.colors.gradient_primary};
+        width: 2px;
+        background: ${({theme}) => theme.colors.gradient_primary};
     }
 `

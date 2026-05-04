@@ -1,6 +1,6 @@
 import {useState} from "react";
 import * as React from "react";
-import {Icon} from "../icon/Icon.tsx";
+import {Icon} from "../../icon/Icon.tsx";
 import {S} from "./DropDown.ts";
 
 

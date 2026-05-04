@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {Icon} from "../../../components/icon/Icon.tsx";
-import {theme} from "../../../styles/Theme.tsx";
 import {font} from "../../../styles/Common.ts";
 
 type ExperienceItemPropsType = {
@@ -26,7 +25,7 @@ export const Item = ({
         <StyledItem $showTimeline={showTimeline}>
             <StyledTopRow>
                 <StyledJobPosition>{jobPosition}</StyledJobPosition>
-                <StyledBadge>{employmentType}</StyledBadge>
+                <Badge>{employmentType}</Badge>
             </StyledTopRow>
 
             <StyledBottomRow>
@@ -67,8 +66,8 @@ const StyledItem = styled.div<{ $showTimeline?: boolean }>`
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
-    border: ${theme.colors.border_color} 1px solid;
-    background: ${theme.colors.bg_section};
+    border: ${({theme}) => theme.colors.border_color} 1px solid;
+    background: ${({theme}) => theme.colors.bg_section};
 
     position: relative;
     margin-bottom: 30px;
@@ -82,7 +81,7 @@ const StyledItem = styled.div<{ $showTimeline?: boolean }>`
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: ${theme.colors.color_menu_hover_dot};
+        background: ${({theme}) => theme.colors.color_menu_hover_dot};
 `
 
 const StyledTopRow = styled.div`
@@ -98,7 +97,8 @@ const StyledInfo = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-    ${font({Fmax: 14, Fmin:10, color: theme.colors.text_secondary })}
+    color: ${({theme}) => theme.colors.text_secondary};
+    ${font({Fmax: 14, Fmin:10})}
  
 `
 
@@ -114,12 +114,13 @@ const StyledJobPosition = styled.h4`
     ${font({weight: 500, Fmax: 20, Fmin:14 })}
 `
 
-const StyledBadge = styled.span`
-    ${font({ Fmax: 10, Fmin: 8, color: theme.colors.success_text})}
+const Badge = styled.span`
+    color: ${({theme}) => theme.colors.success_text};
+    ${font({ Fmax: 10, Fmin: 8})}
     white-space: nowrap;
     text-align: center;
     min-width: 84px;
     border-radius: 100px;
     padding: 7px 20px;
-    background-color: ${theme.colors.success_bg};
+    background-color: ${({theme}) => theme.colors.success_bg};
 `

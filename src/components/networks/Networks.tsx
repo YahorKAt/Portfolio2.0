@@ -1,6 +1,5 @@
 import {Network} from "./network/Network.tsx";
 import styled from "styled-components";
-import {theme} from "../../styles/Theme.tsx";
 
 const socialNetworksArray = [
     {
@@ -44,6 +43,6 @@ const SocialNetworksBox = styled.ul`
     svg:hover {
         transform: scale(1.2);
         transition: all 0.4s ease;
-        color: ${theme.colors.hover_color};
+        color: ${({theme}) => theme.colors.hover_color};
     }
 `

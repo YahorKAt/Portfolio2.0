@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import {font} from "../../../styles/Common.ts";
+import {media} from "../../../styles/Theme.tsx";
 
 const StyledFooterMenu = styled.nav`
     display: flex;
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         display: none;
     }
 `

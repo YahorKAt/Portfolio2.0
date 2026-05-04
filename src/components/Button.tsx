@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
 import {Icon} from "./icon/Icon.tsx";
-import {theme} from "../styles/Theme.tsx";
 import {font, gradientBorder} from "../styles/Common.ts";
 import * as React from "react";
+import {commonColors} from "../styles/Theme.tsx";
 
 type ButtonVariantType = "primary" | "outlined"
 
@@ -14,7 +14,13 @@ type ButtonPropsType = {
     round?: boolean
 }
 
-export const Button:React.FC<ButtonPropsType> = ({children, link, variant = "primary", nameIcon, round}: ButtonPropsType) => {
+export const Button: React.FC<ButtonPropsType> = ({
+                                                      children,
+                                                      link,
+                                                      variant = "primary",
+                                                      nameIcon,
+                                                      round
+                                                  }: ButtonPropsType) => {
     return (
         <StyledButton href={"#" + link} $variant={variant} $round={round}>
             {children}
@@ -42,12 +48,13 @@ const StyledButton = styled.a<StyledButtonPropsType>`
 
     ${({$variant}) =>
             $variant === "primary" && css`
-                background: ${theme.colors.gradient_btn};
+                background: ${({theme}) => theme.colors.gradient_btn};
                 background-size: 200% 100%;
                 background-position: right;
                 border: none;
                 transition: background-position 0.5s ease;
-
+                color: ${commonColors.default_color};
+                
                 &:hover {
                     background-position: left;
                 }
@@ -55,8 +62,8 @@ const StyledButton = styled.a<StyledButtonPropsType>`
 
     ${({$variant}) =>
             $variant === "outlined" && css`
-                background: ${theme.colors.bg_section};
-                border: 1px solid ${theme.colors.border_color};
+                background: ${({theme}) => theme.colors.bg_section};
+                border: 1px solid ${({theme}) => theme.colors.border_color};
                 transition: border-color 0.5s ease;
 
                 &:hover, &:focus {

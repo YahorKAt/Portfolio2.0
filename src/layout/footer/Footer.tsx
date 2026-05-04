@@ -3,6 +3,7 @@ import {FlexWrapper} from "../../components/FlexWrapper.tsx";
 import {Logo} from "../../components/logo/Logo.tsx";
 import {FooterMenu} from "./footerMenu/FooterMenu.tsx";
 import {S} from "./Footer_Styles.ts";
+import styled from "styled-components";
 
 const linksNameList = [
     {title: "Home", id: "home"},
@@ -12,19 +13,40 @@ const linksNameList = [
     {title: "Contact", id: "contact"}
 ]
 
-export const Footer:React.FC = () => {
+export const Footer: React.FC = () => {
     return (
-        <footer>
+        <StyledFooter>
             <Container>
-                <FlexWrapper $align={"center"} $justify={"center"} $gap={"20px"} $wrap={"wrap"}>
-                    <Logo text={"My portfolio"}/>
+                <FlexWrapper $align={"center"} $justify={"center"} $gap={"50px"} $wrap={"wrap"}>
+                    <Logo/>
                     <FooterMenu links={linksNameList}/>
-                    <S.TextBlock>
-                        <S.GreyText>Designed and built by </S.GreyText>Egor
-                        Kotkovets with<S.GreyText> ❤️ </S.GreyText> & Coffee<S.GreyText> ☕</S.GreyText>
-                    </S.TextBlock>
                 </FlexWrapper>
+                <S.TextBlock>
+                    <S.GreyText>Designed and built by </S.GreyText>Egor
+                    Kotkovets with<S.GreyText> ❤️ </S.GreyText> & Coffee<S.GreyText> ☕</S.GreyText>
+                </S.TextBlock>
             </Container>
-        </footer>
+        </StyledFooter>
     );
 };
+
+const StyledFooter = styled.footer`
+    position: relative;
+ 
+    &::after {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 50px;
+        right: 50px;
+        height: 1px;
+
+        background: linear-gradient(
+                190deg,
+                transparent,
+                ${({theme}) => theme.colors.start_gradient},
+                ${({theme}) => theme.colors.end_gradient},
+                transparent
+        );
+    }
+`

@@ -1,5 +1,4 @@
 import styled, {css} from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import {font} from "../../../styles/Common.ts";
 
 const BurgerButton = styled.button<{ $isVisible: boolean }>`
@@ -16,7 +15,7 @@ const BurgerButton = styled.button<{ $isVisible: boolean }>`
         display: block;
         width: 26px;
         height: 2px;
-        background-color: ${theme.colors.text_primary};
+        background-color: ${({theme}) => theme.colors.text_primary};
     }
 
     span {
@@ -38,7 +37,7 @@ const BurgerButton = styled.button<{ $isVisible: boolean }>`
     &:hover {
         transform: scale(1.2);
         span, span::before, span::after {
-            background-color: ${theme.colors.hover_color};
+            background-color: ${({theme}) => theme.colors.hover_color};
             box-shadow: 0 0 8px rgba(124, 92, 255, 0.6);
         }
     }
@@ -48,7 +47,7 @@ const Overlay = styled.div<{ $isVisible: boolean }>`
     display: ${props => props.$isVisible ? 'block' : 'none'};
     position: fixed;
     inset: 0;
-    background: ${theme.colors.header_blur};
+    background: ${({theme}) => theme.colors.header_blur};
     backdrop-filter: blur(5px);
     z-index: 99999;
 `
@@ -61,8 +60,8 @@ const MobileMenuPopUp = styled.div<{ $isVisible: boolean }>`
 
     width: 70%;
     z-index: 99999;
-    background-color: ${theme.colors.bg_section};
-    border: 1px solid ${theme.colors.border_color};
+    background-color: ${({theme}) => theme.colors.bg_section};
+    border: 1px solid ${({theme}) => theme.colors.border_color};
     border-radius: 20px;
     display: none;
     padding: 20px 20px 40px;
@@ -90,7 +89,7 @@ const CloseButton = styled.button`
         display: block;
         width: 24px;
         height: 2px;
-        background-color: ${theme.colors.text_primary};
+        background-color: ${({theme}) => theme.colors.text_primary};
         position: absolute;
     }
 
@@ -107,7 +106,7 @@ const CloseButton = styled.button`
         transition: all 0.4s ease;
 
         &::before, &::after {
-            background: ${theme.colors.hover_color};
+            background: ${({theme}) => theme.colors.hover_color};
         }
     }
 `
@@ -137,7 +136,7 @@ const ListItem = styled.li`
         top: 0;
         width: 3px;
         height: 100%;
-        background: ${theme.colors.hover_color};
+        background: ${({theme}) => theme.colors.hover_color};
         opacity: 0;
         transition: opacity 0.2s ease;
     }
@@ -151,13 +150,13 @@ const ListItem = styled.li`
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background-color: ${theme.colors.hover_color};
+        background-color: ${({theme}) => theme.colors.hover_color};
         opacity: 0;
         transition: opacity 0.2s ease;
     }
 
     &:hover {
-        background-color: ${theme.colors.bg_icon};
+        background-color: ${({theme}) => theme.colors.bg_icon};
         transition: all 0.5s ease;
 
         &::before {
@@ -199,15 +198,15 @@ const IconBlock = styled.div`
         background: linear-gradient(
                 190deg,
                 transparent,
-                ${theme.colors.start_gradient},
-                ${theme.colors.end_gradient},
+                ${({theme}) => theme.colors.start_gradient},
+                ${({theme}) => theme.colors.end_gradient},
                 transparent
         );
     }
 
     svg {
         &:hover {
-            color: ${theme.colors.hover_color};
+            color: ${({theme}) => theme.colors.hover_color};
         }
     }
 `

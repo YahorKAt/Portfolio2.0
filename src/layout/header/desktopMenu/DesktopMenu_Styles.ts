@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import {font, gap} from "../../../styles/Common.ts";
 
 const DesktopMenu = styled.nav`
@@ -20,7 +19,7 @@ const ListItem = styled.li`
         transition: all 0.5s ease;
         
         text-decoration: none;
-        color: ${theme.colors.hover_color};
+        color: ${({theme}) => theme.colors.hover_color};
         text-shadow: 0 0 8px rgba(124, 92, 255, 0.6);
 
         &:after {
@@ -42,7 +41,7 @@ const ListItem = styled.li`
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background-color: ${theme.colors.color_menu_hover_dot};
+        background-color: ${({theme}) => theme.colors.color_menu_hover_dot};
 
         opacity: 0;
         transition: opacity 0.2s ease;

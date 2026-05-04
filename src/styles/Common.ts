@@ -1,4 +1,3 @@
-import {theme} from "./Theme.tsx";
 import {css} from "styled-components";
 
 type FontPropsType = {
@@ -10,12 +9,11 @@ type FontPropsType = {
     Fmax?: number,
 }
 
-export const font = ({family, weight, color, lineHeight, Fmin, Fmax}: FontPropsType) => `
+export const font = ({family, weight, lineHeight, Fmin, Fmax}: FontPropsType) => `
     font-family: ${family || "Poppins"};
     font-weight: ${weight || "400"};
-    color: ${color || theme.colors.text_primary};
     line-height: ${lineHeight || 1.2};
-    font-size: calc( (100vw - 320px)/(1920 - 320) * (${Fmax} - ${Fmin}) + ${Fmin}px);
+    font-size: calc( (100vw - 320px)/(2560 - 320) * (${Fmax} - ${Fmin}) + ${Fmin}px);
 `
 
 
@@ -31,8 +29,7 @@ export const gap = ({Gmin = 0, Gmax = 0, minWidth = 320, maxWidth = 1440}: GapPr
 `
 
 export const gradientBorder = css`
-        outline: none;
-        background: linear-gradient(${theme.colors.bg_section}) padding-box,
-        ${theme.colors.gradient_primary} border-box;
-        border: 1px solid transparent;
+    outline: none;
+    background: ${({ theme }) => `linear-gradient(${theme.colors.bg_section}) padding-box, ${theme.colors.gradient_primary} border-box`};
+    border: 1px solid transparent;
 `

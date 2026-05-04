@@ -6,27 +6,36 @@ import {Projects} from "./layout/sections/projects/Projects.tsx"
 import {Contacts} from "./layout/sections/contacts/Contacts.tsx"
 import {Footer} from "./layout/footer/Footer.tsx"
 import {Experience} from "./layout/sections/experience/Experience.tsx";
-import {theme} from "./styles/Theme.tsx";
+import { ThemeProvider } from "styled-components"
+import { darkTheme, lightTheme } from "./styles/Theme.tsx";
+import {useState} from "react";
+import {GlobalStyles} from "./styles/GlobalStyles.tsx";
 
 
 function App() {
+    const [isDark, setIsDark] = useState(true)
+
     return (
-        <StyledApp id='home'>
-            <Header/>
-            <main>
-                <Main/>
-                <Experience/>
-                <Skills/>
-                <Projects/>
-                <Contacts/>
-            </main>
-            <Footer/>
-        </StyledApp>
+        <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+            <GlobalStyles/>
+            <StyledApp id='home'>
+                <Header onToggle={() => setIsDark(!isDark)} isDark={isDark}/>
+                <main>
+                    <Main/>
+                    <Experience/>
+                    <Skills/>
+                    <Projects/>
+                    <Contacts/>
+                </main>
+                <Footer/>
+            </StyledApp>
+        </ThemeProvider>
+
     )
 }
 
 const StyledApp = styled.div`
-    background: ${theme.colors.bg_page};
+    background: ${({ theme }) => theme.colors.bg_page};
 `
 
 export default App

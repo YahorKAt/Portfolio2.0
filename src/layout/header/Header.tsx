@@ -17,8 +17,12 @@ const linksNameList = [
     {id: 5, title: "Contact", idName: "contact"}
 ]
 
+type HeaderPropsType = {
+    onToggle: () => void
+    isDark: boolean
+}
 
-export const Header: React.FC = () => {
+export const Header: React.FC<HeaderPropsType> = (props: HeaderPropsType) => {
     const [width, setWidth] = React.useState(window.innerWidth);
     const breakpoint = 768;
 
@@ -33,12 +37,12 @@ export const Header: React.FC = () => {
             <S.H1>I'm a web developer</S.H1> {/*hidden*/}
             <Container>
                 <FlexWrapper $justify={"space-between"} $align={"center"} $gap="20px">
-                    <Logo text={"My portfolio"}/>
-                    {width < breakpoint ? <MobileMenu items={linksNameList}/>
-                                        : <DesktopMenu items={linksNameList}/>}
+                    <Logo/>
+                    {width < breakpoint ? <MobileMenu items={linksNameList} onToggle={props.onToggle} isDark={props.isDark}/>
+                        : <DesktopMenu items={linksNameList}/>}
                     <S.RightPanel>
                         <Networks/>
-                        <ChangeThemeButton/>
+                        <ChangeThemeButton onToggle={props.onToggle} isDark={props.isDark}/>
                     </S.RightPanel>
                 </FlexWrapper>
             </Container>

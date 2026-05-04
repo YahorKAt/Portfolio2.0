@@ -1,8 +1,8 @@
 import {font} from "../../../styles/Common.ts";
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme.tsx";
 import abstract from "../../../assets/images/abstract.webp";
 import fog from "../../../assets/images/fog3.webp";
+import {media} from "../../../styles/Theme.tsx";
 
 const Section = styled.section`
     min-height: 100vh;
@@ -22,7 +22,7 @@ const GridWrapper = styled.div`
     row-gap: 15px;
     align-items: center;
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         grid-template-columns: 1fr;
         grid-template-areas:
             "title"
@@ -44,7 +44,7 @@ const GradientText = styled.span`
 
     text-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
     margin-left: -1px;
-    background: ${theme.colors.gradient_primary};
+    background: ${({theme}) => theme.colors.gradient_primary};
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -52,7 +52,8 @@ const GradientText = styled.span`
 
 const Text = styled.p`
     grid-area: text;
-    ${font({Fmax: 20, Fmin: 14, lineHeight: 1.7, color: theme.colors.text_secondary})}
+    color: ${({theme}) => theme.colors.text_secondary};
+    ${font({Fmax: 20, Fmin: 14, lineHeight: 1.5})}
     align-self: start;
     padding-bottom: 20px;
 `
@@ -66,7 +67,7 @@ const PhotoWrapper = styled.div`
     // &::before {
     //     content: '';
     //     position: absolute;
-        //     background: url(${abstract}) no-repeat;
+    //         background: url(${abstract}) no-repeat;
     //     width: 1540px;
     //     height: 1024px;
     //     top: 50%;
@@ -81,7 +82,7 @@ const PhotoWrapper = styled.div`
     // &::after {
     //     content: '';
     //     position: absolute;
-        //     background: url(${fog}) no-repeat;
+    //         background: url(${fog}) no-repeat;
     //     background-size: cover;
     //     width: 165%;
     //     height: 150%;
@@ -93,7 +94,7 @@ const PhotoWrapper = styled.div`
     // }
 
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         justify-self: center;
         margin: 0 35px;
     }
@@ -101,7 +102,7 @@ const PhotoWrapper = styled.div`
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     padding: 3px;
-    background: ${theme.colors.gradient_primary};
+    background: ${({theme}) => theme.colors.gradient_primary};
     z-index: 1;
 `
 
@@ -109,7 +110,7 @@ const Glow = styled.div`
     position: absolute;
     inset: -30px;
     border-radius: 50%;
-    background: ${theme.colors.gradient_primary};
+    background: ${({theme}) => theme.colors.gradient_primary};
     filter: blur(40px);
     opacity: 0.7;
 `;
@@ -130,7 +131,7 @@ const ButtonsBlock = styled.div`
     gap: 20px;
     padding-top: 20px;
 
-    @media ${theme.media.tablet} {
+    @media ${media.tablet} {
         justify-content: center;
         padding-top: 40px;
     }

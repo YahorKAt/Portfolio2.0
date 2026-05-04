@@ -23,7 +23,7 @@ export const ContactForm: React.FC = () => {
                         </S.IconWrapper>
                         {isTextarea
                             ? <S.Textarea id={field.id} name={field.id} placeholder={field.placeholder}/>
-                            : <S.Input id={field.id} name={field.id} placeholder={field.placeholder} type={field.type}/>
+                            : <S.Input id={field.id} name={field.id} placeholder={field.placeholder} autoComplete={field.type} type={field.type}/>
                         }
                     </S.Field>
                 )
