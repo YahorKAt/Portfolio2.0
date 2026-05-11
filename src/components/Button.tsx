@@ -40,36 +40,33 @@ const StyledButton = styled.a<StyledButtonPropsType>`
     justify-content: center;
     gap: 10px;
     white-space: nowrap;
-    transition: 0.3s;
     padding: 15px;
-
     border-radius: 15px;
     ${font({Fmax: 16, Fmin: 12})};
+    z-index: 2;
 
-    ${({$variant}) =>
-            $variant === "primary" && css`
-                background: ${({theme}) => theme.colors.gradient_btn};
-                background-size: 200% 100%;
-                background-position: right;
-                border: none;
-                transition: background-position 0.5s ease;
-                color: ${commonColors.default_color};
-                
-                &:hover {
-                    background-position: left;
-                }
-            `};
+    ${({$variant}) => $variant === "primary" && css`
+        background: ${({theme}) => theme.colors.gradient_btn};
+        background-size: 200% 100%;
+        background-position: right;
+        border: none;
+        color: ${commonColors.default_color};
+        transition: background-position 0.5s ease;
 
-    ${({$variant}) =>
-            $variant === "outlined" && css`
-                background: ${({theme}) => theme.colors.bg_section};
-                border: 1px solid ${({theme}) => theme.colors.border_color};
-                transition: border-color 0.5s ease;
+        &:hover {
+            background-position: left;
+        }
+    `};
 
-                &:hover, &:focus {
-                    ${gradientBorder};
-                }
-            `};
+    ${({$variant}) => $variant === "outlined" && css`
+        background: ${({theme}) => theme.colors.bg_section};
+        border: 1px solid ${({theme}) => theme.colors.border_color};
+        transition: border-color 0.5s ease;
+
+        &:hover, &:focus {
+            ${gradientBorder};
+        }
+    `};
 
     @media screen and (max-width: 992px) {
         padding: 15px;

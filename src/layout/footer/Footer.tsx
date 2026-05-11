@@ -5,21 +5,13 @@ import {FooterMenu} from "./footerMenu/FooterMenu.tsx";
 import {S} from "./Footer_Styles.ts";
 import styled from "styled-components";
 
-const linksNameList = [
-    {title: "Home", id: "home"},
-    {title: "About", id: "about"},
-    {title: "Skills", id: "skills"},
-    {title: "Projects", id: "projects"},
-    {title: "Contact", id: "contact"}
-]
-
 export const Footer: React.FC = () => {
     return (
         <StyledFooter>
             <Container>
                 <FlexWrapper $align={"center"} $justify={"center"} $gap={"50px"} $wrap={"wrap"}>
                     <Logo/>
-                    <FooterMenu links={linksNameList}/>
+                    <FooterMenu/>
                 </FlexWrapper>
                 <S.TextBlock>
                     <S.GreyText>Designed and built by </S.GreyText>Egor

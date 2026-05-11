@@ -1,19 +1,21 @@
-import {S} from "./DesktopMenu_Styles.ts"
+import {NAV_ITEMS} from "../../../data/navigation.ts";
+import {S} from "./DesktopMenu_Styles.ts";
 
-type MenuPropsType = {
-    items: Array<{id: number, title: string; idName: string }>,
-}
 
-export const DesktopMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
+export const DesktopMenu: React.FC = () => {
     return (
-        <S.DesktopMenu>
-            <ul>
-                {props.items.map((item) =>
-                    <S.ListItem key={item.id}>
-                        <a href={"#" + item.idName}>{item.title}</a>
-                    </S.ListItem>)}
-            </ul>
-        </S.DesktopMenu>
+        <nav>
+            <S.NavList>
+                {NAV_ITEMS.map((item) =>
+                    <S.NavItem key={item.id}>
+                        <S.NavLink to={item.idName}
+                                   smooth={true}
+                                   activeClass="active"
+                        >
+                            {item.title}
+                        </S.NavLink>
+                    </S.NavItem>)}
+            </S.NavList>
+        </nav>
     );
 };
-

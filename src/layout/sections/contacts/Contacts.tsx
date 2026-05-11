@@ -2,12 +2,13 @@ import {Container} from "../../../components/Container.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
 import {ContactForm} from "../../../components/form/contactForm/ContactForm.tsx";
 import {S} from "./Contacts_Styles.ts";
+import {Bounce} from "react-awesome-reveal";
 
 
 const FEATURES = [
-    {id:1, icon: "lightning", title: "Quick response", text: "I typically reply within 24 hours"},
-    {id:2, icon: "shield", title: "Your privacy matters", text: "Your information is safe with me"},
-    {id:3, icon: "done", title: "Let's build something great", text: "I'm excited to hear about your project"},
+    {id: 1, icon: "lightning", title: "Quick response", text: "I typically reply within 24 hours"},
+    {id: 2, icon: "shield", title: "Your privacy matters", text: "Your information is safe with me"},
+    {id: 3, icon: "done", title: "Let's build something great", text: "I'm excited to hear about your project"},
 ]
 
 
@@ -29,17 +30,19 @@ export const Contacts: React.FC = () => {
                         </S.HeaderBlock>
 
                         <S.BottomBlock>
-                            {FEATURES.map((item) => (
-                                <S.Item key={item.id}>
-                                    <S.IconBox>
-                                        <Icon iconId={item.icon} width="20" height="20"/>
-                                    </S.IconBox>
-                                    <S.TextBlock>
-                                        <h5>{item.title}</h5>
-                                        <p>{item.text}</p>
-                                    </S.TextBlock>
-                                </S.Item>
-                            ))}
+                            <Bounce cascade={true}>
+                                {FEATURES.map((item) => (
+                                    <S.Item key={item.id}>
+                                        <S.IconBox>
+                                            <Icon iconId={item.icon} width="20" height="20"/>
+                                        </S.IconBox>
+                                        <S.TextBlock>
+                                            <h5>{item.title}</h5>
+                                            <p>{item.text}</p>
+                                        </S.TextBlock>
+                                    </S.Item>
+                                ))}
+                            </Bounce>
                         </S.BottomBlock>
                     </S.RightBlock>
                     <S.LeftBlock>

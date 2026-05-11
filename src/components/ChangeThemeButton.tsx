@@ -25,6 +25,10 @@ const Button = styled.button`
     align-items: center;
     color: ${({ theme }) => theme.colors.text_primary};
 
+    svg {
+        transition: transform 0.4s ease, color 0.4s ease;
+    }
+    
     svg:hover {
         transform: scale(1.2);
         transition: all 0.5s ease;

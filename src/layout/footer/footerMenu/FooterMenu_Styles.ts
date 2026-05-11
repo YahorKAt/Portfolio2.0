@@ -10,13 +10,13 @@ const StyledFooterMenu = styled.nav`
     }
 `
 
-const List = styled.ul<{ gap?: string }>`
+const NavList = styled.ul`
     display: flex;
     ${font({family: "DM Sans", weight: 500, Fmax: 18, Fmin: 16})};
     gap: 50px;
 `
 
-const ListItem = styled.li`
+const NavItem = styled.li`
     position: relative;
     white-space: nowrap;
 
@@ -27,6 +27,6 @@ const ListItem = styled.li`
 
 export const S = {
     StyledFooterMenu,
-    List,
-    ListItem
+    NavList,
+    NavItem
 }

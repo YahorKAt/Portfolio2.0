@@ -17,12 +17,22 @@ const FiltersList = styled.ul`
     flex-wrap: wrap;
 `
 
+const ListItem = styled.li`
+   
+    transition: transform 0.5s ease;
+    
+    &:active {
+        transform: scale(0.9);
+    }
+`
+
 // radio скрыт визуально
 const FilterInput = styled.input`
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
+   
 `
 
 const FilterLabel = styled.label`
@@ -51,6 +61,7 @@ export const S = {
     Fieldset,
     Legend,
     FiltersList,
+    ListItem,
     FilterInput,
     FilterLabel
 }

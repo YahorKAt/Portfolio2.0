@@ -16,6 +16,8 @@ const GreyText = styled.span`
     color: ${({theme}) => theme.colors.text_secondary};
     -webkit-text-fill-color: ${({theme}) => theme.colors.text_secondary};
 `
+
+
 export const S = {
     TextBlock,
     GreyText

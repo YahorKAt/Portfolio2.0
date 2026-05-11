@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import {font, gap} from "../../../styles/Common.ts";
 import {media} from "../../../styles/Theme.tsx";
+import frame from "../../../assets/images/frame.png";
 
 const GridWrapper = styled.div`
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    gap: 50px;
-   
+    gap: 30px;
+
     padding: 20px;
 
     @media ${media.tablet} {
@@ -21,13 +22,14 @@ const RightBlock = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: ${gap({Gmin: 20, Gmax: 50})};
+    align-items: center;
+    gap: 30px;
 `
 
 const LeftBlock = styled.div`
     @media ${media.tablet} {
-        max-width: 450px;
-        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 `
 
@@ -35,16 +37,17 @@ const HeaderBlock = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    gap: ${gap({Gmin: 20, Gmax: 50})};
+    gap: ${gap({Gmin: 20, Gmax: 30})};
     padding-bottom: 10px;
 
     &::after {
         content: "";
         position: absolute;
         bottom: -10px;
-        left: 50px;
-        right: 50px;
+        left: 0;
+        right: 0;
         height: 1px;
+        z-index: 2;
 
         background: linear-gradient(
                 190deg,
@@ -62,14 +65,30 @@ const HeaderBlock = styled.div`
 
 const HeaderIconWrapper = styled.div`
     border-radius: 50%;
+    position: relative;
     padding: 10px;
-    border: ${({theme}) => theme.colors.color_icon} 1px solid;
+    border: ${({theme}) => theme.colors.color_icon} 2px solid;
     background: ${({theme}) => theme.colors.bg_icon};
     color: ${({theme}) => theme.colors.color_icon};
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
+    isolation: isolate;
+
+    &::before {
+        // content: '';
+        // position: absolute;
+        // width: 290px;
+        // height: 290px;
+            // background: url(${frame}) no-repeat;
+        // background-size: contain;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        // pointer-events: none;
+        // opacity: 0.4;
+        // z-index: -1;
+    }
 
 `
 
@@ -77,6 +96,7 @@ const HeaderTextBlock = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
+    z-index: 2;
 
     h4 {
         ${font({weight: 600, Fmax: 26, Fmin: 20})}
@@ -109,7 +129,7 @@ const BottomBlock = styled.ul`
     display: flex;
     flex-direction: column;
     gap: ${gap({Gmin: 20, Gmax: 40})};
-    padding-left: 20px;
+    z-index: 2;
 `
 
 const Item = styled.li`

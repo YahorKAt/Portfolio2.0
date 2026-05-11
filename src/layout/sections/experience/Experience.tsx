@@ -34,8 +34,8 @@ const educationExperienceArray = [
     {
         jobPosition: "Bachelor in Electronics & Communication",
         nameCompany: "Bangalore Instutute of Technology",
-        startDate: "Aug 2015",
-        endDate: "Dec 2020",
+        startDate: "Sep 2015",
+        endDate: "May 2019",
         employmentType: "Full Time"
     },
     {

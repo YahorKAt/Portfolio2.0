@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import {font} from "../../styles/Common.ts";
-import logo from "../../assets/images/logo1.png";
+import logo from "../../assets/images/logo.webp";
 import * as React from "react";
+import {animateScroll as scroll} from "react-scroll";
 
 export const Logo:React.FC = () => {
     return (
-        <Link href="/" aria-label="site logo">
+        <Link onClick={()=>{scroll.scrollToTop()}} aria-label="site logo">
             <Image src={logo} alt={"logo"}/>
-            {/*{props.text}*/}
         </Link>
     );
 };

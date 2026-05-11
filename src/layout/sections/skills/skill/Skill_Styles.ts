@@ -5,9 +5,9 @@ const StyledSkill = styled.li`
     border: ${({theme}) => theme.colors.border_color} 1px solid;
     background: ${({theme}) => theme.colors.bg_section};
     border-radius: 20px;
-    padding: 10px;
+    padding: 30px;
     aspect-ratio: 1 / 1;
-    max-width: 160px;
+    min-width: 120px;
     width: 100%;
     display: flex;
     flex-direction: column;

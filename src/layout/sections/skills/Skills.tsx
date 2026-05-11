@@ -3,8 +3,8 @@ import {Container} from "../../../components/Container.tsx";
 import {Skill} from "./skill/Skill.tsx";
 import {SectionDescription} from "../../../components/SectionDescription.tsx";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
-import {Slider} from "../../../components/Slider.tsx";
 import {S} from "./Skills_Styles.ts"
+import {SliderSimple} from "../../../components/slider/SliderSimple.tsx";
 
 
 const mySkillsArray = [
@@ -83,16 +83,15 @@ export const Skills: React.FC = () => {
                             <Skill key={skill.id} iconId={skill.iconId} skillName={skill.name}/>
                         ))}
                     </S.GridWrapper>
-
-                    <S.SliderWrapper>
-                        <Slider
-                            items={mySkillsArray.map((skill) => (
-                                <Skill key={skill.id} iconId={skill.iconId} skillName={skill.name}/>
-                            ))}
-                            cardWidth={160}
-                            sceneHeight={200}
+                    <S.Slider>
+                        <SliderSimple items={mySkillsArray.map((skill) => (
+                            <Skill key={skill.id}
+                                   iconId={skill.iconId}
+                                   skillName={skill.name}
+                            />
+                        ))}
                         />
-                    </S.SliderWrapper>
+                    </S.Slider>
                 </FlexWrapper>
             </Container>
         </section>

@@ -1,14 +1,14 @@
 import {font} from "../../../styles/Common.ts";
 import styled from "styled-components";
-import abstract from "../../../assets/images/abstract.webp";
-import fog from "../../../assets/images/fog3.webp";
 import {media} from "../../../styles/Theme.tsx";
+import abstract from "../../../assets/images/abstract.webp";
 
 const Section = styled.section`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: clip;
 `
 
 const GridWrapper = styled.div`
@@ -36,7 +36,12 @@ const Title = styled.h2`
     grid-area: title;
     display: flex;
     flex-direction: column;
+    z-index: 2;
+
     ${font({weight: 500, lineHeight: 1.4, Fmax: 58, Fmin: 20})}
+    p {
+        display: none;
+    }
 `
 
 const GradientText = styled.span`
@@ -56,6 +61,7 @@ const Text = styled.p`
     ${font({Fmax: 20, Fmin: 14, lineHeight: 1.5})}
     align-self: start;
     padding-bottom: 20px;
+    z-index: 2;
 `
 
 const PhotoWrapper = styled.div`
@@ -64,35 +70,19 @@ const PhotoWrapper = styled.div`
     margin-right: 16px;
     position: relative;
 
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //         background: url(${abstract}) no-repeat;
-    //     width: 1540px;
-    //     height: 1024px;
-    //     top: 50%;
-    //     right: -50%;
-    //     overflow: hidden;
-    //     pointer-events: none;
-    //
-    //     transform: translateY(-45%);
-    //     opacity: 0.2;
-    // }
-    //
-    // &::after {
-    //     content: '';
-    //     position: absolute;
-    //         background: url(${fog}) no-repeat;
-    //     background-size: cover;
-    //     width: 165%;
-    //     height: 150%;
-    //     top: 48%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     pointer-events: none;
-    //     opacity: 0.3;
-    // }
+    &::before {
+        content: '';
+        position: absolute;
+        background: url(${abstract}) no-repeat center center;
+        width: 1536px;
+        height: 1024px;
+        top: 90%;
+        left: -70%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
 
+        opacity: 0.3;
+    }
 
     @media ${media.tablet} {
         justify-self: center;
@@ -103,16 +93,15 @@ const PhotoWrapper = styled.div`
     border-radius: 50%;
     padding: 3px;
     background: ${({theme}) => theme.colors.gradient_primary};
-    z-index: 1;
 `
 
 const Glow = styled.div`
     position: absolute;
-    inset: -30px;
+    inset: -10px;
     border-radius: 50%;
     background: ${({theme}) => theme.colors.gradient_primary};
     filter: blur(40px);
-    opacity: 0.7;
+    opacity: 0.9;
 `;
 
 const Photo = styled.img`
@@ -146,5 +135,5 @@ export const S = {
     PhotoWrapper,
     Glow,
     Photo,
-    ButtonsBlock
+    ButtonsBlock,
 }

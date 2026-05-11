@@ -30,6 +30,7 @@ const Title = styled.h4`
 `
 
 const Description = styled.p`
+    text-align: justify;
     color: ${({theme}) => theme.colors.text_secondary};
     ${font({lineHeight: 1.7, Fmax: 18, Fmin: 12})}
     margin: 15px 0;

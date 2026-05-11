@@ -1,18 +1,21 @@
 import {S} from "./FooterMenu_Styles.ts";
+import {NAV_ITEMS} from "../../../data/navigation.ts";
+import {Link} from "react-scroll";
 
-type MenuPropsType = {
-    links: Array<{ title: string; id: string }>,
-}
-
-export const FooterMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
+export const FooterMenu: React.FC = () => {
     return (
         <S.StyledFooterMenu>
-            <S.List>
-                {props.links.map((link, index) =>
-                    <S.ListItem key={index}>
-                        <a href={"#" + link.id}>{link.title}</a>
-                    </S.ListItem>)}
-            </S.List>
+            <S.NavList>
+                {NAV_ITEMS.map((item) =>
+                    <S.NavItem key={item.id}>
+                        <Link to={item.idName}
+                              smooth={true}
+                              activeClass="active"
+                        >
+                            {item.title}
+                        </Link>
+                    </S.NavItem>)}
+            </S.NavList>
         </S.StyledFooterMenu>
     );
 };

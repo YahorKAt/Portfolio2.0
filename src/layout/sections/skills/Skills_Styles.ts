@@ -14,8 +14,9 @@ const GridWrapper = styled.ul`
     }
 `
 
-const SliderWrapper = styled.div`
+const Slider = styled.div`
     display: none;
+    margin-top: 30px;
 
     @media ${media.tablet} {
         display: block;
@@ -24,5 +25,5 @@ const SliderWrapper = styled.div`
 
 export const S = {
     GridWrapper,
-    SliderWrapper
+    Slider
 }

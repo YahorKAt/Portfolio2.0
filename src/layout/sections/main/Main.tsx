@@ -4,6 +4,7 @@ import {Container} from "../../../components/Container.tsx";
 import {Button} from "../../../components/Button.tsx";
 import {About} from "../aboutMe/AboutMe.tsx";
 import {S} from "./Main_Styles.ts";
+import Typewriter from "typewriter-effect";
 
 export const Main: React.FC = () => {
     return (
@@ -13,7 +14,16 @@ export const Main: React.FC = () => {
                     <S.Title>
                         <span aria-hidden="true">Hi 👋, I'm</span>
                         <S.GradientText>Egor Kotkovets</S.GradientText>
-                        <span>l build things for web</span>
+                        <p>I build things for web</p>
+                        <Typewriter options={
+                            {
+                                strings: ["I build things for web"],
+                                autoStart: true,
+                                loop: true,
+                                delay: 100
+                            }
+                        }>
+                        </Typewriter>
                     </S.Title>
 
                     <S.Text>Frontend Developer who loves crafting beautiful, responsive

@@ -77,7 +77,7 @@ const StyledItem = styled.div<{ $showTimeline?: boolean }>`
         display: ${({$showTimeline}) => $showTimeline ? 'block' : 'none'};
         position: absolute;
         left: -20px;
-        top: 40px;
+        top: 26px;
         width: 10px;
         height: 10px;
         border-radius: 50%;

@@ -20,6 +20,7 @@ export const List: React.FC<ListPropsType> = (props: ListPropsType) => {
     return (
         <StyledList $showTimeline={props.showTimeline}>
             {props.data.map((item, index) => (
+
                 <Item key={index}
                       jobPosition={item.jobPosition}
                       nameCompany={item.nameCompany}

@@ -8,15 +8,6 @@ import {ChangeThemeButton} from "../../components/ChangeThemeButton.tsx";
 import {S} from "./Header_Styles.ts";
 import * as React from "react";
 
-
-const linksNameList = [
-    {id: 1, title: "Home", idName: "home"},
-    {id: 2, title: "About", idName: "about"},
-    {id: 3, title: "Tech Stack", idName: "skills"},
-    {id: 4, title: "Projects", idName: "projects"},
-    {id: 5, title: "Contact", idName: "contact"}
-]
-
 type HeaderPropsType = {
     onToggle: () => void
     isDark: boolean
@@ -38,8 +29,8 @@ export const Header: React.FC<HeaderPropsType> = (props: HeaderPropsType) => {
             <Container>
                 <FlexWrapper $justify={"space-between"} $align={"center"} $gap="20px">
                     <Logo/>
-                    {width < breakpoint ? <MobileMenu items={linksNameList} onToggle={props.onToggle} isDark={props.isDark}/>
-                        : <DesktopMenu items={linksNameList}/>}
+                    {width <= breakpoint ? <MobileMenu onToggle={props.onToggle} isDark={props.isDark}/>
+                        : <DesktopMenu/>}
                     <S.RightPanel>
                         <Networks/>
                         <ChangeThemeButton onToggle={props.onToggle} isDark={props.isDark}/>

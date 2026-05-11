@@ -8,15 +8,15 @@ const GridWrapper = styled.ul`
     justify-content: center;
     margin-top: 40px;
 
-    @media ${media.tablet} {
+    @media screen and (max-width: 803px) {
         display: none;
     }
 `
 
-const SliderWrapper = styled.div`
+const Slider = styled.div`
     display: none;
 
-    @media ${media.tablet} {
+    @media screen and (max-width: 803px) {
         padding-top: 30px;
         display: block;
     }
@@ -30,8 +30,32 @@ const FilterAndSortBlock = styled.div`
     gap: 8px;
 `
 
+
+const Tablet = styled.div`
+    display: none;
+
+    @media screen and (max-width: 803px) {
+        display: block;
+    }
+
+    @media ${media.mobile} {
+        display: none;
+    }
+`
+
+const Mobile = styled.div`
+    display: none;
+    margin-top: 30px;
+
+    @media ${media.mobile} {
+        display: block;
+    }
+`
+
 export const S = {
     GridWrapper,
-    SliderWrapper,
-    FilterAndSortBlock
+    Slider,
+    FilterAndSortBlock,
+    Tablet,
+    Mobile
 }

@@ -10,12 +10,6 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    html {
-        font-size: 100%;
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-    }
-
     body {
         font-family: 'Poppins', sans-serif;
         color: ${({theme}) => theme.colors.text_primary};

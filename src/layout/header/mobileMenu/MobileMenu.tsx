@@ -1,38 +1,57 @@
+import {useState} from "react";
 import {Networks} from "../../../components/networks/Networks.tsx";
 import {ChangeThemeButton} from "../../../components/ChangeThemeButton.tsx";
 import {S} from "./MobileMenu_Styles.ts"
+import {NAV_ITEMS} from "../../../data/navigation.ts";
+import {Link} from "react-scroll";
 
 type MenuPropsType = {
-    items: Array<{ id: number, title: string; idName: string }>,
     onToggle: () => void
     isDark: boolean
 }
 
-
 export const MobileMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
+    const [menuIsOpen, setmenuIsOpen] = useState(false);
+    const onBurgerBtnClick = () => {
+        setmenuIsOpen(!menuIsOpen)
+    }
     return (
-        <nav>
-            <S.Overlay $isVisible={false}/>
-            <S.BurgerButton $isVisible={true}>
+        <>
+            <S.Overlay $isVisible={menuIsOpen} onClick={() => {
+                setmenuIsOpen(false)
+            }}/>
+            <S.BurgerButton $isVisible={!menuIsOpen} onClick={onBurgerBtnClick}>
                 <span></span>
             </S.BurgerButton>
-            <S.MobileMenuPopUp $isVisible={false}>
-                <S.CloseButton>
+            <S.MobileMenuPopUp $isVisible={menuIsOpen}>
+                <S.CloseButton onClick={onBurgerBtnClick}>
                     <span></span>
                 </S.CloseButton>
 
-                <S.List>
-                    {props.items.map((item) =>
-                        <S.ListItem key={item.id}>
-                            <a href={"#" + item.idName}>{item.title}</a>
-                        </S.ListItem>)}
-                </S.List>
+
+                <nav>
+                    <S.NavList $isVisible={menuIsOpen}>
+                        {NAV_ITEMS.map((item, index) =>
+                            <S.NavItem key={item.id}
+                                       $isVisible={menuIsOpen}
+                                       $total={NAV_ITEMS.length}
+                                       $index={index}
+                                       onClick={onBurgerBtnClick}>
+                                <Link to={item.idName}
+                                      smooth={true}
+                                      activeClass="active"
+                                >
+                                    {item.title}
+                                </Link>
+                            </S.NavItem>)}
+                    </S.NavList>
+                </nav>
+
                 <S.IconBlock>
                     <Networks/>
                     <ChangeThemeButton onToggle={props.onToggle} isDark={props.isDark}/>
                 </S.IconBlock>
             </S.MobileMenuPopUp>
-        </nav>
+        </>
     );
 };
-

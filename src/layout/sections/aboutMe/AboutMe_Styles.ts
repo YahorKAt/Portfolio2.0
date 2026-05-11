@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import {font} from "../../../styles/Common.ts";
+import {font, gap} from "../../../styles/Common.ts";
 import {media} from "../../../styles/Theme.tsx";
 
 const AboutBlock = styled.div`
     padding-top: 100px;
-    z-index: 10;
+    position: relative;
 `
 
 const GridWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    padding: 20px;
+    padding: 30px;
     border: ${({theme}) => theme.colors.border_color} 1px solid;
     background: ${({theme}) => theme.colors.bg_section};
     border-radius: 20px;
@@ -23,9 +23,7 @@ const GridWrapper = styled.div`
 `
 
 const LeftBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  
 `
 
 const Text = styled.p`
@@ -41,14 +39,15 @@ const Text = styled.p`
 const RightBlock = styled.div`
     display: grid;
     grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 1fr);
-    gap: 30px;
+    gap: ${gap({Gmin: 20, Gmax: 30})};
 
     @media ${media.tablet} {
         grid-template-columns: 1fr;
+        justify-self: center;
     }
 
     @media ${media.mobile} {
-        justify-items: start;
+        justify-self: start;
     }
 `
 
@@ -59,7 +58,8 @@ const InfoItem = styled.div`
 `
 
 const IconBox = styled.div`
-    min-width: 64px;
+    max-width: 64px;
+    padding: 10px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     border: ${({theme}) => theme.colors.border_color} 1px solid;
@@ -73,7 +73,7 @@ const IconBox = styled.div`
 const Label = styled.span`
     display: block;
     ${font({weight: 600, Fmax: 18, Fmin: 16})};
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 `
 
 const Value = styled.span`

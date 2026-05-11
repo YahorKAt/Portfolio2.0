@@ -12,7 +12,7 @@ type InfoItemType = {
 const infoItems: InfoItemType[] = [
     {iconId: "user", label: "Name", value: "Egor Kotkovec"},
     {iconId: "myLocation", label: "Location", value: "Minsk, Belarus"},
-    {iconId: "email", label: "Email", value: "fgkfghjgeadfec@gmail.com"},
+    {iconId: "email", label: "Email", value: "egor.kotkovec@gmail.com"},
     {iconId: "clock", label: "Availability", value: "Open to work"},
 ];
 
@@ -34,7 +34,7 @@ export const About:React.FC = () => {
                         {infoItems.map((item) => (
                             <S.InfoItem key={item.iconId}>
                                 <S.IconBox>
-                                    <Icon iconId={item.iconId} width="32" height="32"/>
+                                    <Icon iconId={item.iconId} width="clamp(20px, 3vw, 32px)" height="clamp(20px, 3vw, 32px)"/>
                                 </S.IconBox>
                                 <div>
                                     <S.Label>{item.label}</S.Label>

@@ -14,7 +14,7 @@ const socialNetworksArray = [
     },
     {
         id: 3,
-        name: "twitter",
+        name: "telegram",
         ref: "#"
     }
 ]
@@ -39,6 +39,10 @@ const SocialNetworksBox = styled.ul`
     justify-content: space-between;
     max-width: 120px;
     width: 100%;
+
+    svg {
+        transition: transform 0.4s ease, color 0.4s ease;
+    }
 
     svg:hover {
         transform: scale(1.2);

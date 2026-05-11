@@ -1,16 +1,18 @@
 import styled, {css} from "styled-components";
 import {font} from "../../../styles/Common.ts";
+// import {font} from "../../../styles/Common.ts";
 
 const BurgerButton = styled.button<{ $isVisible: boolean }>`
+    ${props => !props.$isVisible && css<{ $isVisible: boolean }>`
+        display: none;
+    `}
+
     display: flex;
     flex-direction: column;
     gap: 6px;
     padding: 4px;
-    transition: transform 0.2s ease;
+    transition: transform 0.5s ease;
 
-    ${props => !props.$isVisible && css<{ $isVisible: boolean }>`
-        display: none;
-    `}
     span, span::before, span::after {
         display: block;
         width: 26px;
@@ -36,6 +38,7 @@ const BurgerButton = styled.button<{ $isVisible: boolean }>`
 
     &:hover {
         transform: scale(1.2);
+
         span, span::before, span::after {
             background-color: ${({theme}) => theme.colors.hover_color};
             box-shadow: 0 0 8px rgba(124, 92, 255, 0.6);
@@ -56,21 +59,27 @@ const MobileMenuPopUp = styled.div<{ $isVisible: boolean }>`
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
     width: 70%;
     z-index: 99999;
-    background-color: ${({theme}) => theme.colors.bg_section};
+    background: ${({theme}) => theme.colors.bg_page};
     border: 1px solid ${({theme}) => theme.colors.border_color};
     border-radius: 20px;
-    display: none;
     padding: 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 
-    ${props => props.$isVisible && css<{ $isVisible: boolean }>`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+    transform: translate(-50%, -300%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.6s ease, opacity 0.4s ease, visibility 0.4s ease;
+
+
+    ${props => props.$isVisible && css`
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        visibility: visible;
     `}
 `
 
@@ -82,7 +91,7 @@ const CloseButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, transform 0.3s ease;
 
     &::before, &::after {
         content: '';
@@ -103,7 +112,6 @@ const CloseButton = styled.button`
 
     &:hover {
         transform: scale(1.2);
-        transition: all 0.4s ease;
 
         &::before, &::after {
             background: ${({theme}) => theme.colors.hover_color};
@@ -111,76 +119,65 @@ const CloseButton = styled.button`
     }
 `
 
-const List = styled.ul`
+const NavList = styled.ul<{ $isVisible: boolean }>`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 10px;
+    text-align: center;
 `
 
-const ListItem = styled.li`
+const NavItem = styled.li<{ $isVisible: boolean; $index: number; $total: number }>`
     position: relative;
+    cursor: pointer;
     white-space: nowrap;
     padding: 10px 25px;
     border-radius: 5px;
-    transition: background-color 0.2s ease;
     max-width: 200px;
     width: 100%;
     ${font({family: "DM Sans", weight: 500, Fmax: 20, Fmin: 18})};
 
-    &::before {
+    &::before, &::after {
         content: '';
         position: absolute;
+        opacity: 0;
+    }
+
+    &::before {
         left: 0;
         top: 0;
         width: 3px;
         height: 100%;
-        background: ${({theme}) => theme.colors.hover_color};
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
         background-color: ${({theme}) => theme.colors.hover_color};
-        opacity: 0;
-        transition: opacity 0.2s ease;
     }
 
     &:hover {
-        background-color: ${({theme}) => theme.colors.bg_icon};
-        transition: all 0.5s ease;
+        background: ${({theme}) => theme.colors.bg_section};
+        color: ${({theme}) => theme.colors.hover_color};
 
-        &::before {
+        &::before, &::after {
             opacity: 1;
-            transition: all 0.5s ease;
-
-        }
-
-        &::after {
-            opacity: 1;
-            transition: all 0.5s ease;
-
         }
     }
 
     &:active {
         transform: translateY(-1px);
     }
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+
+    ${props => props.$isVisible && css`
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: ${0.6 + (props.$total - 1 - props.$index)  * 0.1}s;
+    `}
 `
 
 const IconBlock = styled.div`
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     justify-content: center;
     width: 100%;
     position: relative;
@@ -211,12 +208,12 @@ const IconBlock = styled.div`
     }
 `
 
-export const S ={
+export const S = {
     Overlay,
     BurgerButton,
     MobileMenuPopUp,
     CloseButton,
-    List,
-    ListItem,
+    NavList,
+    NavItem,
     IconBlock
 }
