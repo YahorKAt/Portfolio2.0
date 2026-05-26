@@ -36,10 +36,11 @@ export const MobileMenu: React.FC<MenuPropsType> = (props: MenuPropsType) => {
                                        $isVisible={menuIsOpen}
                                        $total={NAV_ITEMS.length}
                                        $index={index}
-                                       onClick={onBurgerBtnClick}>
+                                       >
                                 <Link to={item.idName}
                                       smooth={true}
                                       activeClass="active"
+                                      onClick={onBurgerBtnClick}
                                 >
                                     {item.title}
                                 </Link>

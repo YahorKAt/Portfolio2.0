@@ -165,7 +165,7 @@ const NavItem = styled.li<{ $isVisible: boolean; $index: number; $total: number 
 
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.3s ease;
 
     ${props => props.$isVisible && css`
         opacity: 1;
