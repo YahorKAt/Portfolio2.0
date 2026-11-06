@@ -5,17 +5,17 @@ const socialNetworksArray = [
     {
         id: 1,
         name: "github",
-        ref: "#"
+        ref: "https://github.com/YahorKAt"
     },
     {
         id: 2,
         name: "linkedin",
-        ref: "#"
+        ref: "https://www.linkedin.com/in/yaho-katk-37a932291/"
     },
     {
         id: 3,
         name: "telegram",
-        ref: "#"
+        ref: "https://t.me/yahokatk"
     }
 ]
 

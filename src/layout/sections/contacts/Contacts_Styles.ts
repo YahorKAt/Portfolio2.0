@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {font, gap} from "../../../styles/Common.ts";
 import {media} from "../../../styles/Theme.tsx";
-import frame from "../../../assets/images/frame.png";
 
 const GridWrapper = styled.div`
     display: grid;
@@ -74,22 +73,6 @@ const HeaderIconWrapper = styled.div`
     align-items: center;
     justify-content: center;
     isolation: isolate;
-
-    &::before {
-        // content: '';
-        // position: absolute;
-        // width: 290px;
-        // height: 290px;
-            // background: url(${frame}) no-repeat;
-        // background-size: contain;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
-        // pointer-events: none;
-        // opacity: 0.4;
-        // z-index: -1;
-    }
-
 `
 
 const HeaderTextBlock = styled.div`

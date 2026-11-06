@@ -20,9 +20,19 @@ export const commonColors = {
     gradient_btn: "linear-gradient(90deg, #4facfe, #8e44ad, #4facfe)",
 
     // STATUS COLORS
+
+
+    success_bg: "#05261A",
     success_text: "#018C0F",
-    info_bg: "#DBEAFE",
-    info_text: "#2563EB"
+
+    warning_text: "#f59e0b",
+    warning_bg: "rgba(245, 158, 11, 0.15)",
+
+    primary_text: "#8b5cf6",
+    primary_bg: "rgba(139, 92, 246, 0.15)",
+
+    info_bg: "#06b6d4",
+    info_text: "#043349",
 }
 
 
@@ -41,7 +51,6 @@ const darkColors = {
     text_secondary: "#838796",
     text_primary_hover: "#B9B9BB",
 
-    success_bg: "#05261A",
 
 }
 

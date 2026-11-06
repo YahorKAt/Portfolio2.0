@@ -7,6 +7,7 @@ const GridWrapper = styled.ul`
     gap: 35px;
     justify-content: center;
     margin-top: 40px;
+ 
 
     @media screen and (max-width: 803px) {
         display: none;

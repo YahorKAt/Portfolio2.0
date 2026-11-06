@@ -49,7 +49,7 @@ const Field = styled.div<{ $textarea?: boolean }>`
         ${gradientBorder};
         color: ${({theme}) => theme.colors.color_icon};
         outline: none;
-        
+
     }
 `
 
@@ -65,8 +65,19 @@ const Input = styled.input`
     padding: 12px 12px 12px 0;
     background: transparent;
     border: none;
-    color: ${({theme}) => theme.colors.text_secondary};
+    color: ${({theme}) => theme.colors.text_primary};
     ${font({lineHeight: 1.6, Fmax: 14, Fmin: 10})};
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        -webkit-text-fill-color: ${({theme}) => theme.colors.text_primary} !important;
+        caret-color: ${({theme}) => theme.colors.text_primary};
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
 
     &::placeholder {
         color: ${({theme}) => theme.colors.text_secondary};
@@ -84,9 +95,9 @@ const Textarea = styled.textarea`
     background: transparent;
     border: none;
     resize: vertical;
-    color: ${({theme}) => theme.colors.text_secondary};
+    color: ${({theme}) => theme.colors.text_primary};
     ${font({lineHeight: 1.6, Fmax: 14, Fmin: 10})};
-    
+
     &::placeholder {
         color: ${({theme}) => theme.colors.text_secondary};
     }
@@ -94,7 +105,7 @@ const Textarea = styled.textarea`
     &:focus-visible {
         outline: none;
     }
-    
+
 `
 
 const HideText = styled.span`

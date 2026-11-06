@@ -10,7 +10,7 @@ type Slider3DProps = {
     sceneHeight?: number
 }
 
-export const Slider3D: React.FC<Slider3DProps> = ({items, cardWidth = 280, sceneHeight = 520}) => {
+export const Slider3D: React.FC<Slider3DProps> = ({items, cardWidth = 280, sceneHeight = 600}) => {
     const {active, setActive, prev, next} = useSlider(items.length)
 
     const getPosition = (index: number) => {

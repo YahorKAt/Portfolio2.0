@@ -8,34 +8,40 @@ const workExperienceArray = [
     {
         jobPosition: "Junior Web Developer",
         nameCompany: "IT-Incubator",
-        location: "Belarus",
+        location: "Belarus, Minsk",
         startDate: "2026",
         endDate: "Present",
-        employmentType: "Full Time"
+        employmentType: "Full Time",
     },
 ]
+
 const educationExperienceArray = [
     {
         jobPosition: "Frontend Developer",
         nameCompany: "IT-Incubator",
         startDate: "2026",
-        endDate: "Present",
-        employmentType: "Full Time"
+        endDate: "2026",
+        employmentType: "Courses",
+        location: "Belarus, Minsk",
     },
     {
-        jobPosition: "Economist-Manager",
-        nameCompany: "Specialist degree in Economics and Management in Entrepreneurship. National Technical University (BNTU)",
+        jobPosition: "Экономист-менеджер",
+        nameCompany: "BNTU",
+        faculty: "Economics and Management in Entrepreneurship",
         startDate: "2018",
         endDate: "2020",
-        employmentType: "Part Time"
+        employmentType: "Part Time",
+        description: "Distance learning",
     },
     {
         jobPosition: "Software Engineer",
-        nameCompany: "National Technical University (BNTU)",
+        nameCompany: "BNTU",
+        faculty: "Information Technologies and Robotics",
         startDate: "2015",
         endDate: "2019",
-        employmentType: "Full Time"
-    }
+        employmentType: "Full Time",
+        description: "Higher education",
+    },
 ]
 
 export const Experience: React.FC = () => {
@@ -49,7 +55,7 @@ export const Experience: React.FC = () => {
                     </div>
                     <div>
                         <SectionTitle icon="education">Education</SectionTitle>
-                        <List data={educationExperienceArray}/>
+                        <List data={educationExperienceArray} showTimeline/>
                     </div>
                 </S.GridWrapper>
             </Container>

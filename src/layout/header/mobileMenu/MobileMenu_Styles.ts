@@ -1,6 +1,5 @@
 import styled, {css} from "styled-components";
 import {font} from "../../../styles/Common.ts";
-// import {font} from "../../../styles/Common.ts";
 
 const BurgerButton = styled.button<{ $isVisible: boolean }>`
     ${props => !props.$isVisible && css<{ $isVisible: boolean }>`

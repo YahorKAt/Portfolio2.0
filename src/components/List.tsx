@@ -2,32 +2,29 @@ import {Item} from "../layout/sections/aboutMe/Item.tsx";
 import styled from "styled-components";
 import * as React from "react";
 
-type ItemPropsType = {
+export type ExperienceItemPropsType = {
     jobPosition: string;
     nameCompany: string;
     location?: string;
+    faculty?: string;          // NEW — факультет (для образования)
     startDate: string;
     endDate?: string;
     employmentType: string;
+    description?: string;      // NEW — описание
+    responsibilities?: string[]; // NEW — список обязанностей
 }
 
 type ListPropsType = {
-    data: ItemPropsType[],
-    showTimeline?: boolean,
+    data: ExperienceItemPropsType[];
+    showTimeline?: boolean;
 }
 
 export const List: React.FC<ListPropsType> = (props: ListPropsType) => {
     return (
         <StyledList $showTimeline={props.showTimeline}>
             {props.data.map((item, index) => (
-
                 <Item key={index}
-                      jobPosition={item.jobPosition}
-                      nameCompany={item.nameCompany}
-                      location={item.location || ""}
-                      startDate={item.startDate}
-                      endDate={item.endDate}
-                      employmentType={item.employmentType}
+                      {...item}
                       showTimeline={props.showTimeline}
                 />
             ))}
@@ -38,9 +35,11 @@ export const List: React.FC<ListPropsType> = (props: ListPropsType) => {
 const StyledList = styled.div<{ $showTimeline?: boolean }>`
     display: flex;
     flex-direction: column;
+    gap: 30px;
     position: relative;
     padding-left: ${({$showTimeline}) => $showTimeline ? '30px' : '0'};
     margin-top: 20px;
+
     &::before {
         content: "";
         display: ${({$showTimeline}) => $showTimeline ? 'block' : 'none'};
@@ -51,4 +50,4 @@ const StyledList = styled.div<{ $showTimeline?: boolean }>`
         width: 2px;
         background: ${({theme}) => theme.colors.gradient_primary};
     }
-`
+`;

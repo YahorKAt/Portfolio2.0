@@ -108,13 +108,6 @@ export const Projects: React.FC = () => {
                             }
                         />
                     </S.Mobile>
-                    {/*<S.SliderWrapper>*/}
-                    {/*    <Slider3D*/}
-                    {/*        items={filteredProjects.map((project) =>*/}
-                    {/*            <Project key={project.id} {...project}/>)*/}
-                    {/*        }*/}
-                    {/*        cardWidth={360}/>*/}
-                    {/*</S.SliderWrapper>*/}
                     <S.GridWrapper>
                         <AnimatePresence>
                             {filteredProjects.map((project, index) => (
