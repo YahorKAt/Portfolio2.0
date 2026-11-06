@@ -11,7 +11,8 @@ type ButtonPropsType = {
     variant?: ButtonVariantType,
     nameIcon?: string,
     link?: string,
-    round?: boolean
+    round?: boolean,
+    download?: string
 }
 
 export const Button: React.FC<ButtonPropsType> = ({
@@ -19,10 +20,17 @@ export const Button: React.FC<ButtonPropsType> = ({
                                                       link,
                                                       variant = "primary",
                                                       nameIcon,
-                                                      round
+                                                      round,
+                                                      download
                                                   }: ButtonPropsType) => {
     return (
-        <StyledButton href={"#" + link} $variant={variant} $round={round}>
+        <StyledButton href={download
+            ? `${import.meta.env.BASE_URL}cv/${download}`
+            : `#${link}`
+        }
+                      download={download}
+                      $variant={variant}
+                      $round={round}>
             {children}
             {nameIcon && <Icon iconId={nameIcon} width="20" height="20"/>}
         </StyledButton>

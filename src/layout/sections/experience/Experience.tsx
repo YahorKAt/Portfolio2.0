@@ -7,42 +7,33 @@ import * as React from "react";
 const workExperienceArray = [
     {
         jobPosition: "Junior Web Developer",
-        nameCompany: "Dr. Rajkumar’s Learning App",
+        nameCompany: "IT-Incubator",
         location: "Belarus",
-        startDate: "Sep 2021",
-        endDate: "Dec 2021",
+        startDate: "2026",
+        endDate: "Present",
         employmentType: "Full Time"
     },
-    {
-        jobPosition: "Web Development Intern",
-        nameCompany: "IonPixelz Web Solutions",
-        location: "Bengaluru",
-        startDate: "Sep 2021",
-        endDate: "Dec 2021",
-        employmentType: "Internship"
-    },
-    {
-        jobPosition: "SEO / SEM Specialist",
-        nameCompany: "Dr. Rajkumar’s Learning App dvdsgfsdf",
-        location: "United Kingdom of Great Britain and Northern Ireland",
-        startDate: "Sep 2021",
-        endDate: "Dec 2021",
-        employmentType: "Internship"
-    }
 ]
 const educationExperienceArray = [
     {
-        jobPosition: "Bachelor in Electronics & Communication",
-        nameCompany: "Bangalore Instutute of Technology",
-        startDate: "Sep 2015",
-        endDate: "May 2019",
+        jobPosition: "Frontend Developer",
+        nameCompany: "IT-Incubator",
+        startDate: "2026",
+        endDate: "Present",
         employmentType: "Full Time"
     },
     {
-        jobPosition: "Bachelor in Electronics & Communication",
-        nameCompany: "Bangalore Instutute of Technology",
-        startDate: "Aug 2015",
-        endDate: "Dec 2020",
+        jobPosition: "Economist-Manager",
+        nameCompany: "Specialist degree in Economics and Management in Entrepreneurship. National Technical University (BNTU)",
+        startDate: "2018",
+        endDate: "2020",
+        employmentType: "Part Time"
+    },
+    {
+        jobPosition: "Software Engineer",
+        nameCompany: "National Technical University (BNTU)",
+        startDate: "2015",
+        endDate: "2019",
         employmentType: "Full Time"
     }
 ]

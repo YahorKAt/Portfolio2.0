@@ -42,7 +42,7 @@ export const Main: React.FC = () => {
 
                     <S.ButtonsBlock>
                         <Button link={'projects'} variant="primary" nameIcon="arrow">View My Work</Button>
-                        <Button variant="outlined" nameIcon="download">Download CV</Button>
+                        <Button variant="outlined" download="Yahor_Kotkovets_CV.pdf" nameIcon="download">Download CV</Button>
                     </S.ButtonsBlock>
                 </S.GridWrapper>
             </ Container>

@@ -90,7 +90,7 @@ const StyledTopRow = styled.div`
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
-    
+
 `
 
 const StyledInfo = styled.div`
@@ -98,8 +98,7 @@ const StyledInfo = styled.div`
     align-items: center;
     gap: 8px;
     color: ${({theme}) => theme.colors.text_secondary};
-    ${font({Fmax: 14, Fmin:10})}
- 
+    ${font({Fmax: 14, Fmin: 10})};
 `
 
 const StyledBottomRow = styled.div`
@@ -111,12 +110,12 @@ const StyledBottomRow = styled.div`
 `
 
 const StyledJobPosition = styled.h4`
-    ${font({weight: 500, Fmax: 20, Fmin:14 })}
+    ${font({weight: 500, Fmax: 20, Fmin: 14})}
 `
 
 const Badge = styled.span`
     color: ${({theme}) => theme.colors.success_text};
-    ${font({ Fmax: 10, Fmin: 8})}
+    ${font({Fmax: 10, Fmin: 8})}
     white-space: nowrap;
     text-align: center;
     min-width: 84px;

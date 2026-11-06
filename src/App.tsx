@@ -13,7 +13,6 @@ import {GlobalStyles} from "./styles/GlobalStyles.tsx";
 import {GoTopBtn} from "./components/goTopBtn/GoTopBtn.tsx";
 import {Fade} from "react-awesome-reveal";
 
-
 function App() {
     const [isDark, setIsDark] = useState(true)
 

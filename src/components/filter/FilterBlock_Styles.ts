@@ -32,7 +32,6 @@ const FilterInput = styled.input`
     opacity: 0;
     width: 0;
     height: 0;
-   
 `
 
 const FilterLabel = styled.label`
@@ -43,6 +42,7 @@ const FilterLabel = styled.label`
     border-radius: 10px;
     cursor: pointer;
     ${font({Fmax: 14, Fmin: 12})};
+    user-select: none;
 
     background: ${({theme}) => theme.colors.bg_section};
     border: 1px solid ${({theme}) => theme.colors.border_color};

@@ -32,7 +32,7 @@ const Title = styled.h4`
 const Description = styled.p`
     text-align: justify;
     color: ${({theme}) => theme.colors.text_secondary};
-    ${font({lineHeight: 1.7, Fmax: 18, Fmin: 12})}
+    ${font({lineHeight: 1.6, Fmax: 18, Fmin: 12})}
     margin: 15px 0;
 `
 
@@ -85,13 +85,6 @@ const Link = styled.a`
                 background-position: 200%;
             }
         }
-    }
-
-    &:focus {
-        outline: none;
-        background: linear-gradient(${({theme}) => theme.colors.bg_section}) padding-box, ${({theme}) => theme.colors.gradient_primary} border-box;
-        border: 1px solid transparent;
-        border-radius: 5px;
     }
 `
 

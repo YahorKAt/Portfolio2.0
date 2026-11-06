@@ -25,49 +25,49 @@ const mySkillsArray = [
     },
     {
         id: 4,
+        name: "TypeScript",
+        iconId: "typescript"
+    },
+    {
+        id: 5,
         name: "React",
         iconId: "react"
     },
     {
-        id: 5,
-        name: "Redux",
+        id: 6,
+        name: "RTK",
         iconId: "redux"
     },
     {
-        id: 6,
-        name: "Bootstrap",
-        iconId: "bootstrap"
+        id: 7,
+        name: "React Router",
+        iconId: "react-router"
     },
     {
-        id: 7,
+        id: 8,
+        name: "Material UI",
+        iconId: "mui"
+    },
+    {
+        id: 9,
         name: "Tailwind",
         iconId: "tailwind"
     },
     {
-        id: 8,
-        name: "Sass",
-        iconId: "sass"
-    },
-    {
-        id: 9,
+        id: 10,
         name: "Git",
         iconId: "git"
     },
     {
-        id: 10,
-        name: "Greensock",
-        iconId: "greensock"
-    },
-    {
         id: 11,
-        name: "VS Code",
-        iconId: "vscode"
+        name: "Github",
+        iconId: "githubSk"
     },
     {
         id: 12,
-        name: "Github",
-        iconId: "githubSk"
-    }
+        name: "Vite",
+        iconId: "vite"
+    },
 ];
 
 

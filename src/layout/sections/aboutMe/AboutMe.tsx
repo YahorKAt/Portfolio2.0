@@ -12,7 +12,7 @@ type InfoItemType = {
 const infoItems: InfoItemType[] = [
     {iconId: "user", label: "Name", value: "Egor Kotkovec"},
     {iconId: "myLocation", label: "Location", value: "Minsk, Belarus"},
-    {iconId: "email", label: "Email", value: "egor.kotkovec@gmail.com"},
+    {iconId: "email", label: "Email", value: "kotkovec.eg@gmail.com"},
     {iconId: "clock", label: "Availability", value: "Open to work"},
 ];
 

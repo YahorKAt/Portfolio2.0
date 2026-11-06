@@ -1,6 +1,6 @@
 import {Icon} from "../../icon/Icon.tsx";
 import * as React from "react";
-import emailjs from '@emailjs/browser';
+import emails from '@emailjs/browser';
 import {type ElementRef, useRef} from "react";
 import {Notification} from "../../notification/Notification.tsx";
 import {S} from "./ContactForm_Styles.ts";
@@ -21,7 +21,7 @@ export const ContactForm: React.FC = () => {
         if (!form.current) return
         setStatus("sending")
 
-        emailjs.sendForm('service_x8l44iv', 'template_rad72x6', form.current, {publicKey: 'mgYwwHzmvtdhwju_q'})
+        emails.sendForm('service_x8l44iv', 'template_rad72x6', form.current, {publicKey: 'mgYwwHzmvtdhwju_q'})
             .then(() => {
                 setStatus("success")
                 form.current?.reset()
