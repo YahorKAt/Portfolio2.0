@@ -25,9 +25,9 @@ const educationExperienceArray = [
         location: "Belarus, Minsk",
     },
     {
-        jobPosition: "Экономист-менеджер",
+        jobPosition: "Economist-Manager",
         nameCompany: "BNTU",
-        faculty: "Economics and Management in Entrepreneurship",
+        faculty: "Economics & Management in Entrepreneurship",
         startDate: "2018",
         endDate: "2020",
         employmentType: "Part Time",
@@ -36,7 +36,7 @@ const educationExperienceArray = [
     {
         jobPosition: "Software Engineer",
         nameCompany: "BNTU",
-        faculty: "Information Technologies and Robotics",
+        faculty: "Information Technologies & Robotics",
         startDate: "2015",
         endDate: "2019",
         employmentType: "Full Time",
