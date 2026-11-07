@@ -10,7 +10,7 @@ const socialNetworksArray = [
     {
         id: 2,
         name: "linkedin",
-        ref: "https://www.linkedin.com/in/yaho-katk-37a932291/"
+        ref: "https://www.linkedin.com/in/yahokatk/"
     },
     {
         id: 3,
